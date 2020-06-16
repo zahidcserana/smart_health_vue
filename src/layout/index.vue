@@ -7,7 +7,7 @@
 
     <div class="m-grid m-grid--hor m-grid--root m-page">
       <div>
-        <app-header :loggedUser="loggedUser"></app-header>
+        <app-header :loggedUser="loggedUser" :isLogged="isLogged"></app-header>
 
         <router-view />
 
@@ -50,7 +50,9 @@ export default {
 
       $(window).on('load', function () {
         console.log('--start--')
-        $('#preloder').css('display', 'none')
+        $('.loader').fadeOut()
+        $('#preloder').delay(200).fadeOut('slow')
+        // $('#preloder').css('display', 'none')
         // $('body').removeClass('m-page--loading')
       })
     })
@@ -60,7 +62,7 @@ export default {
     document.head.appendChild(recaptchaScript)
   },
   created () {
-    this.loading = true
+    this.loading = false
     this.checkCookie()
   },
   methods: {
@@ -71,7 +73,7 @@ export default {
 
       this.isLogged = false
 
-      this.$router.push('/login')
+      // this.$router.push('/login')
     },
 
     checkCookie () {

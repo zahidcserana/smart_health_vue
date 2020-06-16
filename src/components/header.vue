@@ -28,7 +28,8 @@
           </ul>
         </div>
         <div class="header__top__right__auth">
-          <a href="#"><i class="fa fa-user"></i> Login</a>
+          <h6 v-if="loggedUser.name">{{ loggedUser.name }}</h6>
+          <router-link v-else to="/login"><i class="fa fa-user"></i>Login</router-link>
         </div>
       </div>
       <nav class="humberger__menu__nav mobile-menu">
@@ -97,7 +98,8 @@
                   </ul>
                 </div>
                 <div class="header__top__right__auth">
-                  <a href="#"><i class="fa fa-user"></i> Login</a>
+                  <h6 v-if="loggedUser.name">{{ loggedUser.name }}</h6>
+                  <router-link v-else to="/login"><i class="fa fa-user"></i>Login</router-link>
                 </div>
               </div>
             </div>
@@ -173,6 +175,11 @@ export default {
     return {
       showSettings: false,
       isHoverSettings: false
+    }
+  },
+  props: {
+    loggedUser: {
+      type: Object
     }
   },
   computed: {},

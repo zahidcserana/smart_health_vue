@@ -631,9 +631,9 @@ export default {
     msg: String
   },
   mounted () {
-    // const recaptchaScript = document.createElement('script')
-    // recaptchaScript.setAttribute('src', 'js/main.js')
-    // document.head.appendChild(recaptchaScript)
+    const recaptchaScript = document.createElement('script')
+    recaptchaScript.setAttribute('src', 'js/main.js')
+    document.head.appendChild(recaptchaScript)
   }
 }
 </script>
