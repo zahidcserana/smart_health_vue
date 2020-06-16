@@ -34,6 +34,12 @@ const routes = [
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
         meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'product',
+        component: () => import('@/views/product/index'),
+        name: 'Product',
+        meta: { title: 'Product', icon: 'dashboard', affix: true }
       }
       // {
       //   path: 'about',
