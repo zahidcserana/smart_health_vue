@@ -11,7 +11,7 @@ export function login (data) {
 
 export function getInfo () {
   return request({
-    url: `${env.api_url}details`,
+    url: `${env.api_url}me`,
     // url: '/vue-element-admin/user/info',
     method: 'post'
   })

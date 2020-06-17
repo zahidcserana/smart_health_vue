@@ -49,7 +49,7 @@ export default {
       submitStatus: null,
       login: {
         email: 'admin@admin.com',
-        password: 'password@123',
+        password: '12345678',
         loginRemember: null
       },
       fetchError: null
@@ -97,20 +97,20 @@ export default {
 
         setTimeout(() => {
           axios
-            .post(env.api_url + 'login/', this.login)
+            .post(env.api_url + 'auth/login/', this.login)
             .then(response => {
-              if (response.error) {
-                this.showError('Wrong login or password')
-              } else {
+              if (response.data.token) {
                 this.fetchError = null
 
-                localStorage.setItem('token', response.data.success.token)
+                localStorage.setItem('token', response.data.token)
 
                 getInfo().then(response => {
                   Helpers.setLoading(false)
                   location.reload()
                   this.$router.push('/dashboard')
                 })
+              } else {
+                this.showError('Wrong login or password')
               }
             })
             .catch(error => {
