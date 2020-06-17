@@ -37,7 +37,7 @@
 import $ from 'jquery'
 import axios from 'axios'
 import { env, Helpers } from '@/utils/auth'
-import { getInfo } from '@/api/user'
+// import { getInfo } from '@/api/user'
 import { required } from 'vuelidate/lib/validators'
 // import buttonLoader from '@/components/ButtonLoader.vue'
 
@@ -101,14 +101,16 @@ export default {
             .then(response => {
               if (response.data.token) {
                 this.fetchError = null
-
                 localStorage.setItem('token', response.data.token)
-
-                getInfo().then(response => {
-                  Helpers.setLoading(false)
-                  location.reload()
-                  this.$router.push('/dashboard')
-                })
+                localStorage.setItem('userInfo', JSON.stringify(response.data))
+                this.$router.push('/dashboard')
+                location.reload()
+                // setTimeout(function () {
+                //   getInfo().then(response => {
+                //     Helpers.setLoading(false)
+                //     location.reload()
+                //   })
+                // }, 3000)
               } else {
                 this.showError('Wrong login or password')
               }

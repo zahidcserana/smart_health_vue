@@ -30,7 +30,7 @@
 import $ from 'jquery'
 import appHeader from '@/components/header.vue'
 import appFooter from '@/components/footer.vue'
-import { getInfo } from '@/api/user'
+// import { getInfo } from '@/api/user'
 
 export default {
   name: 'app',
@@ -77,22 +77,29 @@ export default {
     },
 
     checkCookie () {
-      if (localStorage.getItem('token')) {
-        getInfo()
-          .then(response => {
-            if (response.error) {
-              this.logout()
-            } else {
-              this.loggedUser = response.success
-              console.log('loggedUser')
-              console.log(this.loggedUser)
-              this.isLogged = true
-            }
-          })
-          .catch(error => {
-            console.log(error)
-            this.logout()
-          })
+      if (localStorage.getItem('userInfo')) {
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+
+        this.loggedUser = userInfo.user
+        this.isLogged = true
+        // getInfo()
+        //   .then(response => {
+        //     if (response.error) {
+        //       console.log('ok1')
+        //       this.logout()
+        //     } else {
+        //       console.log('ok2')
+
+        //       this.loggedUser = response
+        //       console.log('loggedUser')
+        //       console.log(this.loggedUser)
+        //       this.isLogged = true
+        //     }
+        //   })
+        //   .catch(error => {
+        //     console.log(error)
+        //     this.logout()
+        //   })
       } else {
         this.logout()
       }
