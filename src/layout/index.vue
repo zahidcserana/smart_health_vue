@@ -9,7 +9,7 @@
       <div>
         <app-header :loggedUser="loggedUser" :isLogged="isLogged"></app-header>
 
-        <router-view />
+        <router-view/>
 
         <app-footer></app-footer>
       </div>
@@ -78,9 +78,8 @@ export default {
 
     checkCookie () {
       if (localStorage.getItem('userInfo')) {
-        const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+        this.loggedUser = JSON.parse(localStorage.getItem('userInfo'))
 
-        this.loggedUser = userInfo.user
         this.isLogged = true
         // getInfo()
         //   .then(response => {

@@ -4,6 +4,15 @@
       <form @submit.prevent="submitForm" class="m-login__form m-form">
         <input
           class="form-control"
+          :class="{ 'form-group--error': $v.login.name.$error }"
+          type="text"
+          v-model.trim="$v.login.name.$model"
+          placeholder="Name"
+          name="name"
+          autocomplete="off"
+        />
+        <input
+          class="form-control"
           :class="{ 'form-group--error': $v.login.email.$error }"
           type="text"
           v-model.trim="$v.login.email.$model"
@@ -19,9 +28,17 @@
           placeholder="Password"
           name="password"
         />
-        <button>login</button>
-        <p class="message">Not registered?
-          <router-link to="/register">Create an account</router-link>
+        <input
+          class="form-control m-input m-login__form-input--last"
+          :class="{ 'form-group--error': $v.login.c_password.$error }"
+          type="password"
+          v-model.trim="$v.login.c_password.$model"
+          placeholder="Confirm Password"
+          name="c_password"
+        />
+        <button>Sign Up</button>
+        <p class="message">Already registered?
+          <router-link to="/login">Sign in</router-link>
         </p>
       </form>
     </div>
@@ -37,25 +54,32 @@ import { required } from 'vuelidate/lib/validators'
 // import buttonLoader from '@/components/ButtonLoader.vue'
 
 export default {
-  name: 'login-form',
+  name: 'register-form',
   data () {
     return {
       loading: false,
       submitStatus: null,
       login: {
-        email: 'admin@admin.com',
+        name: 'Zahid',
+        email: 'zahid@admin.com',
         password: '12345678',
-        loginRemember: null
+        c_password: '12345678'
       },
       fetchError: null
     }
   },
   validations: {
     login: {
+      name: {
+        required
+      },
       email: {
         required
       },
       password: {
+        required
+      },
+      c_password: {
         required
       }
     }
@@ -64,12 +88,12 @@ export default {
     $(document).ready(function () {
       $(window).on('load', function () {
         // $('body').removeClass('m-page--loading')
-        // $('.message a').click(function () {
-        //   $('form').animate({
-        //     height: 'toggle',
-        //     opacity: 'toggle'
-        //   }, 'slow')
-        // })
+        /* $('.message a').click(function () {
+          $('form').animate({
+            height: 'toggle',
+            opacity: 'toggle'
+          }, 'slow')
+        }) */
       })
     })
     // const recaptchaScript = document.createElement('script')
@@ -95,7 +119,7 @@ export default {
 
         setTimeout(() => {
           axios
-            .post(env.api_url + 'auth/login/', this.login)
+            .post(env.api_url + 'auth/register/', this.login)
             .then(response => {
               const result = response.data
               if (result.status) {

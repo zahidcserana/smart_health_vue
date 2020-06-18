@@ -28,14 +28,14 @@
           </ul>
         </div>
         <div class="header__top__right__auth">
-          <h6 v-if="loggedUser.name">{{ loggedUser.name }}</h6>
+          <span v-if="loggedUser.name"> <small>{{ loggedUser.name.toUpperCase() }}</small> </span>
           <router-link v-else to="/login"><i class="fa fa-user"></i>Login</router-link>
         </div>
       </div>
       <nav class="humberger__menu__nav mobile-menu">
         <ul>
           <li class="active">
-            <router-link to="/dashboard">Home</router-link>
+            <router-link to="/">Home</router-link>
           </li>
           <li><router-link to="/product">Shop</router-link></li>
           <li>
@@ -98,7 +98,7 @@
                   </ul>
                 </div>
                 <div class="header__top__right__auth">
-                  <h6 v-if="loggedUser.name">{{ loggedUser.name }}</h6>
+                  <span v-if="loggedUser.name"> <small>{{ loggedUser.name.toUpperCase() }}</small> </span>
                   <router-link v-else to="/login"><i class="fa fa-user"></i>Login</router-link>
                 </div>
               </div>
@@ -117,7 +117,7 @@
             <nav class="header__menu">
               <ul>
                 <li class="active">
-                  <router-link to="/dashboard">Home</router-link>
+                  <router-link to="/">Home</router-link>
                 </li>
                 <li>
                   <router-link to="/product">Shop</router-link>
@@ -186,6 +186,7 @@ export default {
   methods: {
     logout () {
       localStorage.removeItem('token')
+      localStorage.removeItem('userInfo')
 
       // Empty this.loggedUser object
       this.loggedUser = {}

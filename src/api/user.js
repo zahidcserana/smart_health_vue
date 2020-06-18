@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 import { env } from '@/utils/auth'
 
-export function login (data) {
+export function login(data) {
   return request({
     url: '/vue-element-admin/user/login',
     method: 'post',
@@ -9,7 +9,7 @@ export function login (data) {
   })
 }
 
-export function getInfo () {
+export function getInfo() {
   return request({
     url: `${env.api_url}me`,
     // url: '/vue-element-admin/user/info',
@@ -17,14 +17,14 @@ export function getInfo () {
   })
 }
 
-export function logout () {
+export function logout() {
   return request({
     url: '/vue-element-admin/user/logout',
     method: 'post'
   })
 }
 
-export function fetchUserList (query) {
+export function fetchUserList(query) {
   return request({
     url: `${env.api_url}/users/`,
     method: 'get',
@@ -32,7 +32,7 @@ export function fetchUserList (query) {
   })
 }
 
-export function fetchDepartmentList (query) {
+export function fetchDepartmentList(query) {
   return request({
     url: `${env.api_url}/departments/`,
     method: 'get',
@@ -40,7 +40,7 @@ export function fetchDepartmentList (query) {
   })
 }
 
-export function updateUser (data) {
+export function updateUser(data) {
   return request({
     url: `${env.api_url}/users/${data.id}/`,
     method: 'put',
@@ -48,7 +48,7 @@ export function updateUser (data) {
   })
 }
 
-export function createUser (data) {
+export function createUser(data) {
   return request({
     url: `${env.api_url}/users/`,
     method: 'post',
