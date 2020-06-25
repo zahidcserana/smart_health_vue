@@ -12,6 +12,17 @@ const routes = [
     hidden: true
   },
   {
+    path: '/login/mobile',
+    component: () => import('@/views/login/mobile'),
+    hidden: true
+  },
+  {
+    path: '/login/mobile/otp',
+    name: 'mobile_otp',
+    component: () => import('@/views/login/mobile_otp'),
+    hidden: true
+  },
+  {
     path: '/register',
     component: () => import('@/views/register/index'),
     hidden: true

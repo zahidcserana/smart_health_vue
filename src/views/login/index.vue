@@ -23,6 +23,9 @@
         <p class="message">Not registered?
           <router-link to="/register">Create an account</router-link>
         </p>
+        <p class="message">
+          <router-link to="/login/mobile">Mobile Login</router-link>
+        </p>
       </form>
     </div>
   </div>

@@ -1,53 +1,19 @@
 <template>
   <div class="login-page">
     <div class="form">
+      <p>User Mobile Number is:{{ login.mobile }} </p>
       <form @submit.prevent="submitForm" class="m-login__form m-form">
         <input
-          class="form-control"
-          :class="{ 'form-group--error': $v.login.name.$error }"
-          type="text"
-          v-model.trim="$v.login.name.$model"
-          placeholder="Name"
-          name="name"
-          autocomplete="off"
-        />
-        <input
-          class="form-control"
-          :class="{ 'form-group--error': $v.login.mobile.$error }"
-          type="text"
-          v-model.trim="$v.login.mobile.$model"
-          placeholder="Mobile"
-          name="mobile"
-          autocomplete="off"
-        />
-        <input
-          class="form-control"
-          :class="{ 'form-group--error': $v.login.email.$error }"
-          type="text"
-          v-model.trim="$v.login.email.$model"
-          placeholder="Email"
-          name="email"
-          autocomplete="off"
-        />
-        <input
           class="form-control m-input m-login__form-input--last"
-          :class="{ 'form-group--error': $v.login.password.$error }"
-          type="password"
-          v-model.trim="$v.login.password.$model"
-          placeholder="Password"
-          name="password"
+          :class="{ 'form-group--error': $v.login.mobile_otp.$error }"
+          type="text"
+          v-model.trim="$v.login.mobile_otp.$model"
+          placeholder="Mobile OTP"
+          name="mobile_otp"
         />
-        <input
-          class="form-control m-input m-login__form-input--last"
-          :class="{ 'form-group--error': $v.login.c_password.$error }"
-          type="password"
-          v-model.trim="$v.login.c_password.$model"
-          placeholder="Confirm Password"
-          name="c_password"
-        />
-        <button>Sign Up</button>
-        <p class="message">Already registered?
-          <router-link to="/login">Sign in</router-link>
+        <button>Submit</button>
+        <p class="message">Not registered?
+          <router-link to="/login">Email Login</router-link>
         </p>
       </form>
     </div>
@@ -63,36 +29,21 @@ import { required } from 'vuelidate/lib/validators'
 // import buttonLoader from '@/components/ButtonLoader.vue'
 
 export default {
-  name: 'register-form',
+  name: 'login-form',
   data () {
     return {
       loading: false,
       submitStatus: null,
       login: {
-        name: 'Zahid',
-        email: 'zahid@admin.com',
         mobile: '',
-        password: '12345678',
-        c_password: '12345678'
+        mobile_otp: '12345678'
       },
       fetchError: null
     }
   },
   validations: {
     login: {
-      name: {
-        required
-      },
-      mobile: {
-        required
-      },
-      email: {
-        required
-      },
-      password: {
-        required
-      },
-      c_password: {
+      mobile_otp: {
         required
       }
     }
@@ -101,12 +52,12 @@ export default {
     $(document).ready(function () {
       $(window).on('load', function () {
         // $('body').removeClass('m-page--loading')
-        /* $('.message a').click(function () {
-          $('form').animate({
-            height: 'toggle',
-            opacity: 'toggle'
-          }, 'slow')
-        }) */
+        // $('.message a').click(function () {
+        //   $('form').animate({
+        //     height: 'toggle',
+        //     opacity: 'toggle'
+        //   }, 'slow')
+        // })
       })
     })
     // const recaptchaScript = document.createElement('script')
@@ -114,7 +65,9 @@ export default {
     // document.head.appendChild(recaptchaScript)
   },
   created () {
-    this.checkCookie()
+    const mobileLogin = JSON.parse(localStorage.getItem('mobile_login'))
+    this.login.mobile = mobileLogin.mobile
+    // this.checkCookie()
   },
   methods: {
     checkCookie () {
@@ -132,15 +85,15 @@ export default {
 
         setTimeout(() => {
           axios
-            .post(env.api_url + 'auth/register/', this.login)
+            .post(env.api_url + 'auth/login/mobile/otp', this.login)
             .then(response => {
               const result = response.data
               if (result.status) {
                 this.fetchError = null
                 localStorage.setItem('token', result.data.token)
-                localStorage.setItem('userInfo', JSON.stringify(result.data.user))
-                this.$router.push('/')
-                location.reload()
+                localStorage.setItem('mobile_otp', JSON.stringify(result.data.mobile_otp))
+                // this.$router.push('/')
+                // location.reload()
               } else {
                 this.showError('Wrong login or password')
               }
