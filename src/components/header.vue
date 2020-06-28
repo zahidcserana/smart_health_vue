@@ -187,6 +187,7 @@ export default {
     logout () {
       localStorage.removeItem('token')
       localStorage.removeItem('userInfo')
+      localStorage.removeItem('login_mobile')
 
       // Empty this.loggedUser object
       this.loggedUser = {}
