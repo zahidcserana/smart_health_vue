@@ -57,7 +57,7 @@
 <script>
 import $ from 'jquery'
 import axios from 'axios'
-import { env, Helpers } from '@/utils/auth'
+import { env } from '@/utils/auth'
 // import { getInfo } from '@/api/user'
 import { required } from 'vuelidate/lib/validators'
 // import buttonLoader from '@/components/ButtonLoader.vue'
@@ -110,7 +110,7 @@ export default {
       })
     })
     // const recaptchaScript = document.createElement('script')
-    // recaptchaScript.setAttribute('src', 'assets/snippets/pages/user/login.js')
+    // recaptchaScript.setAttribute('src', 'assets/snippets/pages/user/user.js')
     // document.head.appendChild(recaptchaScript)
   },
   created () {
@@ -120,8 +120,6 @@ export default {
     checkCookie () {
       if (localStorage.getItem('token')) {
         this.$router.push('/')
-      } else {
-        Helpers.setLoading(true)
       }
       this.loading = false
     },
@@ -142,7 +140,7 @@ export default {
                 this.$router.push('/')
                 location.reload()
               } else {
-                this.showError('Wrong login or password')
+                this.showError('Wrong user or password')
               }
             })
             .catch(error => {

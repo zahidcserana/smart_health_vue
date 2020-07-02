@@ -65,7 +65,7 @@ export default {
 
       this.isLogged = false
 
-      this.$router.push('/login')
+      this.$router.push('/user')
     },
 
     checkCookie () {

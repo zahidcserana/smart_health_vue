@@ -8,18 +8,18 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
+    component: () => import('@/views/user/login'),
     hidden: true
   },
   {
     path: '/login/mobile',
-    component: () => import('@/views/login/mobile'),
+    component: () => import('@/views/user/mobile'),
     hidden: true
   },
   {
     path: '/login/mobile/otp',
     name: 'mobile_otp',
-    component: () => import('@/views/login/mobile_otp'),
+    component: () => import('@/views/user/mobile_otp'),
     hidden: true
   },
   {
@@ -55,13 +55,13 @@ const routes = [
         component: () => import('@/views/product/index'),
         name: 'Product',
         meta: { title: 'Product', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'profile',
+        component: () => import('@/views/user/profile'),
+        name: 'Profile',
+        meta: { title: 'Profile', icon: 'dashboard', affix: true }
       }
-      // {
-      //   path: 'about',
-      //   component: () => import('@/views/about/index'),
-      //   name: 'About',
-      //   meta: { title: 'About', icon: 'dashboard', affix: true }
-      // }
     ]
   }
 ]

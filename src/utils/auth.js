@@ -1,25 +1,29 @@
-import $ from 'jquery'
+const TokenKey = 'token'
 
-// import Cookies from 'js-cookie'
+export function getToken () {
+  return localStorage.getItem(TokenKey)
+  // return Cookies.get(TokenKey)
+}
 
-// const TokenKey = 'Admin-Token'
+export function setToken (token) {
+  return localStorage.setItem(TokenKey, token)
+  // return Cookies.set(TokenKey, token)
+}
 
-// export function getToken() {
-//   return Cookies.get(TokenKey)
-// }
+export function removeToken () {
+  console.log(removeToken)
+  // return localStorage.removeItem(TokenKey)
+  // return Cookies.remove(TokenKey)
+}
 
-// export function setToken(token) {
-//   return Cookies.set(TokenKey, token)
-// }
-
-// export function removeToken() {
-//   return Cookies.remove(TokenKey)
-// }
+export function getUserInfo () {
+  return JSON.parse(localStorage.getItem('user_info'))
+}
 
 export const env = {
   production: false,
-  api_url: 'http://127.0.0.1:8000/api/',
-  // api_url: 'http://127.0.0.1:8000/api/',
+  api_url: 'http://shapi.local/api/',
+  domain: 'http://shapi.local/',
   protocal: 'http://',
   storeHoshName: 'localhost:8080',
   patnerHoshName: 'localhost:8080',
@@ -28,12 +32,7 @@ export const env = {
 
 export class Helpers {
   static setLoading (enable) {
-    const body = $('body')
     if (enable) {
-      $(body).attr('class', 'm--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default')
-      // $(body).addClass('m--skin- m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas')
-    } else {
-      $(body).attr('class', 'm-page--fluid m-page--loading-enabled m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default')
     }
   }
 }

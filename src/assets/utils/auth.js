@@ -25,15 +25,3 @@ export const env = {
   patnerHoshName: 'localhost:8080',
   partner: 'localhost'
 }
-
-export class Helpers {
-  static setLoading (enable) {
-    const body = $('body')
-    if (enable) {
-      $(body).attr('class', 'm--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default')
-      // $(body).addClass('m--skin- m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas')
-    } else {
-      $(body).attr('class', 'm-page--fluid m-page--loading-enabled m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default')
-    }
-  }
-}

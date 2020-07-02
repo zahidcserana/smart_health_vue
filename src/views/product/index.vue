@@ -761,7 +761,7 @@
 
 <script>
 export default {
-  name: 'Dashboard',
+  name: 'Product',
   props: {
     msg: String
   },

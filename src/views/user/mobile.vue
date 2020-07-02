@@ -1,7 +1,8 @@
 <template>
   <div class="login-page">
     <div class="form">
-      <div class="alert" v-if="fetchError"> {{ fetchError }}</div>
+      <div class="alert-msg" v-if="fetchError"> {{ fetchError }}</div>
+      <p>Please enter your register mobile number</p>
       <form @submit.prevent="submitForm" class="m-login__form m-form">
         <input
           class="form-control m-input m-login__form-input--last"
@@ -23,11 +24,11 @@
 <script>
 import $ from 'jquery'
 import axios from 'axios'
-import { env, Helpers } from '@/utils/auth'
+import { env } from '@/utils/auth'
 // import { getInfo } from '@/api/user'
 import { required } from 'vuelidate/lib/validators'
 // import buttonLoader from '@/components/ButtonLoader.vue'
-import '../../../public/css/custom.css'
+import '../../../public/css/auth.css'
 
 export default {
   name: 'login-form',
@@ -61,7 +62,7 @@ export default {
       })
     })
     // const recaptchaScript = document.createElement('script')
-    // recaptchaScript.setAttribute('src', 'assets/snippets/pages/user/login.js')
+    // recaptchaScript.setAttribute('src', 'assets/snippets/pages/user/user.js')
     // document.head.appendChild(recaptchaScript)
   },
   created () {
@@ -71,8 +72,6 @@ export default {
     checkCookie () {
       if (localStorage.getItem('token')) {
         this.$router.push('/')
-      } else {
-        Helpers.setLoading(true)
       }
       this.loading = false
     },
@@ -91,7 +90,7 @@ export default {
                 this.fetchError = null
                 localStorage.setItem('token', result.data.token)
                 localStorage.setItem('login_mobile', JSON.stringify(result.data.login_mobile))
-                // this.$router.push('/login/mobile/otp')
+                // this.$router.push('/user/mobile/otp')
                 // location.reload()
                 this.$router.push('mobile/otp')
               } else {

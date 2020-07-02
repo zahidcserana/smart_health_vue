@@ -19,7 +19,7 @@
       </div>
       <div class="humberger__menu__widget">
         <div class="header__top__right__language">
-          <img src="img/language.png" alt="" />
+          <img src="img/language.png" alt=""/>
           <div>English</div>
           <span class="arrow_carrot-down"></span>
           <ul>
@@ -29,7 +29,7 @@
         </div>
         <div class="header__top__right__auth">
           <span v-if="loggedUser.name"> <small>{{ loggedUser.name.toUpperCase() }}</small> </span>
-          <router-link v-else to="/login"><i class="fa fa-user"></i>Login</router-link>
+          <router-link v-else to="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</router-link>
         </div>
       </div>
       <nav class="humberger__menu__nav mobile-menu">
@@ -37,7 +37,9 @@
           <li class="active">
             <router-link to="/">Home</router-link>
           </li>
-          <li><router-link to="/product">Shop</router-link></li>
+          <li>
+            <router-link to="/product">Shop</router-link>
+          </li>
           <li>
             <a href="#">Pages</a>
             <ul class="header__menu__dropdown">
@@ -89,7 +91,7 @@
                   <a href="#"><i class="fa fa-pinterest-p"></i></a>
                 </div>
                 <div class="header__top__right__language">
-                  <img src="img/language.png" alt="" />
+                  <img src="img/language.png" alt=""/>
                   <div>English</div>
                   <span class="arrow_carrot-down"></span>
                   <ul>
@@ -98,8 +100,15 @@
                   </ul>
                 </div>
                 <div class="header__top__right__auth">
-                  <span v-if="loggedUser.name"> <small>{{ loggedUser.name.toUpperCase() }}</small> </span>
-                  <router-link v-else to="/login"><i class="fa fa-user"></i>Login</router-link>
+                  <a v-if="loggedUser.name" v-on:click="logout()" title="logout" style="cursor: pointer">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  </a>
+                  <router-link v-else to="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</router-link>
+                </div>
+                <div class="header__top__right__auth">
+                  <span v-if="loggedUser.name">
+                    <router-link title="Profile" to="/profile"><small>{{ loggedUser.name.toUpperCase() }}</small></router-link>
+                  </span>
                 </div>
               </div>
             </div>
@@ -144,13 +153,8 @@
                 </li>
                 <li>
                   <a href="#"
-                    ><i class="fa fa-shopping-bag"></i> <span>3</span></a
+                  ><i class="fa fa-shopping-bag"></i> <span>3</span></a
                   >
-                </li>
-                <li>
-                  <a v-on:click="logout()">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                  </a>
                 </li>
               </ul>
               <div class="header__cart__price">item: <span>$150.00</span></div>
@@ -200,7 +204,7 @@ export default {
 
       // Go to Login page
       location.reload()
-      // this.$router.push('/login')
+      // this.$router.push('/user')
     }
   },
   components: {

@@ -1,23 +1,30 @@
 <template>
   <div class="login-page">
     <div class="form">
-      <div class="alert" v-if="fetchError"> {{ fetchError }}</div>
-      <p class="my-req">OTP has been sent to: <b>{{ login.mobile }}</b>. Please enter your OTP to login </p>
-      <p class="goto-site"> Successfully Login
-        <a href="/"> Go to Home</a>
-      </p>
       <form @submit.prevent="submitForm" class="m-login__form m-form">
         <input
-          class="form-control m-input m-login__form-input--last"
-          :class="{ 'form-group--error': $v.login.mobile_otp.$error }"
+          class="form-control"
+          :class="{ 'form-group--error': $v.login.email.$error }"
           type="text"
-          v-model.trim="$v.login.mobile_otp.$model"
-          placeholder="Enter OTP"
-          name="mobile_otp"
+          v-model.trim="$v.login.email.$model"
+          placeholder="Email"
+          name="email"
+          autocomplete="off"
         />
-        <button>Submit</button>
+        <input
+          class="form-control m-input m-login__form-input--last"
+          :class="{ 'form-group--error': $v.login.password.$error }"
+          type="password"
+          v-model.trim="$v.login.password.$model"
+          placeholder="Password"
+          name="password"
+        />
+        <button>login</button>
         <p class="message">Not registered?
-          <router-link to="/login">Email Login</router-link>
+          <router-link to="/register">Create an account</router-link>
+        </p>
+        <p class="btn-link">
+          <router-link class="primary-btn" to="/login/mobile">Mobile Login</router-link>
         </p>
       </form>
     </div>
@@ -27,11 +34,11 @@
 <script>
 import $ from 'jquery'
 import axios from 'axios'
-import { env, Helpers } from '@/utils/auth'
+import { env } from '@/utils/auth'
 // import { getInfo } from '@/api/user'
 import { required } from 'vuelidate/lib/validators'
 // import buttonLoader from '@/components/ButtonLoader.vue'
-import '../../../public/css/custom.css'
+import '../../../public/css/auth.css'
 
 export default {
   name: 'login-form',
@@ -40,15 +47,19 @@ export default {
       loading: false,
       submitStatus: null,
       login: {
-        mobile: '',
-        mobile_otp: ''
+        email: 'admin@admin.com',
+        password: '12345678',
+        loginRemember: null
       },
       fetchError: null
     }
   },
   validations: {
     login: {
-      mobile_otp: {
+      email: {
+        required
+      },
+      password: {
         required
       }
     }
@@ -56,7 +67,6 @@ export default {
   mounted () {
     $(document).ready(function () {
       $(window).on('load', function () {
-        $('.goto-site').hide()
         // $('body').removeClass('m-page--loading')
         // $('.message a').click(function () {
         //   $('form').animate({
@@ -67,19 +77,16 @@ export default {
       })
     })
     // const recaptchaScript = document.createElement('script')
-    // recaptchaScript.setAttribute('src', 'assets/snippets/pages/user/login.js')
+    // recaptchaScript.setAttribute('src', 'assets/snippets/pages/user/user.js')
     // document.head.appendChild(recaptchaScript)
   },
   created () {
-    // this.checkCookie()
-    this.login.mobile = JSON.parse(localStorage.getItem('login_mobile'))
+    this.checkCookie()
   },
   methods: {
     checkCookie () {
       if (localStorage.getItem('token')) {
         this.$router.push('/')
-      } else {
-        Helpers.setLoading(true)
       }
       this.loading = false
     },
@@ -90,19 +97,17 @@ export default {
 
         setTimeout(() => {
           axios
-            .post(env.api_url + 'auth/login/mobile/otp', this.login)
+            .post(env.api_url + 'auth/login', this.login)
             .then(response => {
               const result = response.data
               if (result.status) {
                 this.fetchError = null
                 localStorage.setItem('token', result.data.token)
                 localStorage.setItem('userInfo', JSON.stringify(result.data.user))
-                $('.goto-site').show()
-                $('.my-req').hide()
                 // this.$router.push('/')
-                // location.reload()
+                location.reload()
               } else {
-                this.showError(response.data.message)
+                this.showError('Wrong user or password')
               }
             })
             .catch(error => {
@@ -112,7 +117,7 @@ export default {
             })
         }, 500)
       } else {
-        this.showError('Error : Please enter your OTP.')
+        this.showError('Error : Please enter valid credential.')
       }
     },
 

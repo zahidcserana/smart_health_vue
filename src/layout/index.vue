@@ -31,6 +31,7 @@ import $ from 'jquery'
 import appHeader from '@/components/header.vue'
 import appFooter from '@/components/footer.vue'
 // import { getInfo } from '@/api/user'
+import '../../public/css/custom.css'
 
 export default {
   name: 'app',
@@ -73,7 +74,7 @@ export default {
 
       this.isLogged = false
 
-      // this.$router.push('/login')
+      // this.$router.push('/user')
     },
 
     checkCookie () {
