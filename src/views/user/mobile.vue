@@ -22,12 +22,11 @@
 </template>
 
 <script>
-import $ from 'jquery'
 import axios from 'axios'
 import { env } from '@/utils/auth'
 // import { getInfo } from '@/api/user'
 import { required } from 'vuelidate/lib/validators'
-// import buttonLoader from '@/components/ButtonLoader.vue'
+// import buttonLoader from '@/components/-ButtonLoader.vue'
 import '../../../public/css/auth.css'
 
 export default {
@@ -48,22 +47,6 @@ export default {
         required
       }
     }
-  },
-  mounted () {
-    $(document).ready(function () {
-      $(window).on('load', function () {
-        // $('body').removeClass('m-page--loading')
-        // $('.message a').click(function () {
-        //   $('form').animate({
-        //     height: 'toggle',
-        //     opacity: 'toggle'
-        //   }, 'slow')
-        // })
-      })
-    })
-    // const recaptchaScript = document.createElement('script')
-    // recaptchaScript.setAttribute('src', 'assets/snippets/pages/user/user.js')
-    // document.head.appendChild(recaptchaScript)
   },
   created () {
     this.checkCookie()

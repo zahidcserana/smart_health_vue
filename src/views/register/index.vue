@@ -60,7 +60,7 @@ import axios from 'axios'
 import { env } from '@/utils/auth'
 // import { getInfo } from '@/api/user'
 import { required } from 'vuelidate/lib/validators'
-// import buttonLoader from '@/components/ButtonLoader.vue'
+// import buttonLoader from '@/components/-ButtonLoader.vue'
 
 export default {
   name: 'register-form',
@@ -130,7 +130,7 @@ export default {
 
         setTimeout(() => {
           axios
-            .post(env.api_url + 'auth/register/', this.login)
+            .post(env.api_url + 'auth/register', this.login)
             .then(response => {
               const result = response.data
               if (result.status) {
