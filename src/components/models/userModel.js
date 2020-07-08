@@ -24,12 +24,3 @@ const userModel = {
   }
 }
 export default userModel
-
-// export class WeekDays {
-//   day: number;
-//   start_time: string;
-//   end_time: string;
-//   is_open: boolean = true;
-//   always_open: boolean = true;
-//   weekName?: string;
-// }

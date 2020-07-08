@@ -77,7 +77,9 @@
                         class="form-control"
                         :class="{ 'form-group--error': $v.user.user_type.$error }"
                       >
-                        <option v-for="(value, key, index) in userSettings.userTypes" :key="value+index" :value="key">{{ value }}</option>
+                        <option v-for="(value, key, index) in userSettings.userTypes" :key="value+index" :value="key">{{
+                          value }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -92,7 +94,8 @@
                         class="form-control"
                         :class="{ 'form-group--error': $v.user.city_id.$error }"
                       >
-                        <option v-for="(item,index) in cities" :key="item+index" :value="item.id">{{ item.name }}</option>
+                        <option v-for="(item,index) in cities" :key="item+index" :value="item.id">{{ item.name }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -104,7 +107,8 @@
                         class="form-control"
                         :class="{ 'form-group--error': $v.user.area_id.$error }"
                       >
-                        <option v-for="(item,index) in areas" :key="item+index" :value="item.id">{{ item.name }}</option>
+                        <option v-for="(item,index) in areas" :key="item+index" :value="item.id">{{ item.name }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -118,7 +122,9 @@
                         class="form-control"
                         :class="{ 'form-group--error': $v.user.gender.$error }"
                       >
-                        <option v-for="(value, key, index) in userSettings.genders" :key="value+index" :value="key">{{ value }}</option>
+                        <option v-for="(value, key, index) in userSettings.genders" :key="value+index" :value="key">{{
+                          value }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -130,7 +136,9 @@
                         class="form-control"
                         :class="{ 'form-group--error': $v.user.blood_group.$error }"
                       >
-                        <option v-for="(item,index) in userSettings.bloodGroups" :key="item" :index="index" :value="item">{{ item }}</option>
+                        <option v-for="(item,index) in userSettings.bloodGroups" :key="item" :index="index"
+                                :value="item">{{ item }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -181,7 +189,9 @@
                         v-model="user.doctor.specialty_id"
                         class="form-control"
                       >
-                        <option v-for="(value, key, index) in userSettings.doctorSpecialties" :key="value+index" :value="value">{{ key }}</option>
+                        <option v-for="(value, key, index) in userSettings.doctorSpecialties" :key="value+index"
+                                :value="value">{{ key }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -292,8 +302,8 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="checkout__input">
-                      <p>Doctor Schedule</p>
-
+                      <p>Doctor Schedule <i class="btn fa fa-plus-square-o" v-on:click="scheduleForm"></i></p>
+                      <schedules v-if="addSchedule" :user="user"/>
                     </div>
                   </div>
                 </div>
@@ -316,84 +326,41 @@
 import { required } from 'vuelidate/lib/validators'
 import { getInfo, updateUser } from '@/api/user'
 import { cityList, areaList, userSettings } from '@/api/settings'
-import Avatar from '../../components/Avatar'
-import userModel from '../../components/Models/userModel'
-import userSettingsModel from '../../components/Models/userSettingsModel'
+import Avatar from '@/components/Avatar'
+// import DoctorSchedule from '@/components/DoctorSchedule'
+import Schedules from '@/components/Schedules'
+import userModel from '@/components/models/userModel'
+import userSettingsModel from '@/components/models/userSettingsModel'
 
 export default {
   name: 'Profile',
   components: {
-    Avatar
+    Avatar,
+    Schedules
   },
   data () {
     return {
+      addSchedule: false,
       loading: false,
       submitStatus: null,
       user: userModel,
       userSettings: userSettingsModel,
-      /* user: {
-        id: undefined,
-        address: '',
-        name: '',
-        email: '',
-        mobile: '',
-        city_id: '',
-        area_id: '',
-        gender: '',
-        blood_group: '',
-        user_type: '',
-        avatar: '',
-        doctor: {
-          specialty_id: 0,
-          qualification_details: '',
-          designation_details: '',
-          bmdc_reg_no: '',
-          chamber1_address: '',
-          chamber2_address: '',
-          chamber1_contact_no: '',
-          chamber2_contact_no: '',
-          visiting_days: '',
-          visiting_hrs: ''
-        }
-      }, */
       fetchError: null,
-      /* doctorSpecialties: null,
-      userTypes: null,
-      genders: null,
-      bGroups: null, */
       cities: null,
       areas: null
     }
   },
   validations: {
     user: {
-      email: {
-        required
-      },
-      name: {
-        required
-      },
-      mobile: {
-        required
-      },
-      city_id: {
-        required
-      },
-      area_id: {
-        required
-      },
-      address: {
-        required
-      },
-      gender: {
-        required
-      },
-      blood_group: {
-        required
-      },
-      user_type: {
-        required
-      }
+      email: { required },
+      name: { required },
+      mobile: { required },
+      city_id: { required },
+      area_id: { required },
+      address: { required },
+      gender: { required },
+      blood_group: { required },
+      user_type: { required }
     }
   },
   mounted () {
@@ -408,6 +375,9 @@ export default {
     this.getCityList()
   },
   methods: {
+    scheduleForm () {
+      this.addSchedule = true
+    },
     checkCookie () {
       if (!localStorage.getItem('token')) {
         this.$router.push('/login')
@@ -418,7 +388,6 @@ export default {
         if (response.status) {
           this.fetchError = null
           this.user = response.data
-          // this.setInfo(response.data)
           this.getAreaList(this.user.city_id)
         } else {
           this.showError('Something went wrong.')
@@ -433,7 +402,6 @@ export default {
         if (response.status) {
           this.fetchError = null
           this.userSettings = response.data
-          // this.setUserSettings(response.data)
         } else {
           this.showError('Something went wrong.')
         }
@@ -450,33 +418,11 @@ export default {
       })
     },
     getAreaList (cityId) {
-      console.log(cityId)
       areaList(cityId).then(response => {
         if (response.status) {
           this.areas = response.data
         }
       })
-    },
-    /* setInfo (userInfo) {
-      this.user.id = userInfo.id
-      this.user.name = userInfo.name
-      this.user.email = userInfo.email
-      this.user.mobile = userInfo.mobile
-      this.user.avatar = userInfo.avatar
-      this.user.city_id = userInfo.city_id
-      this.user.area_id = userInfo.area_id
-      this.user.address = userInfo.address
-      this.user.gender = userInfo.gender
-      this.user.blood_group = userInfo.blood_group
-      this.user.user_type = userInfo.user_type
-    }, */
-    setUserSettings (data) {
-      this.userSettings.bloodGroups = data.bloodGroup
-      this.userSettings.genders = data.gender
-      this.userSettings.userTypes = data.userType
-      this.userSettings.doctorSpecialties = data.doctorSpecialties
-
-      console.log(this.bGroups)
     },
     submitForm () {
       this.$v.$touch()
@@ -486,7 +432,6 @@ export default {
           if (response.status) {
             this.fetchError = null
             this.user = response.data
-            // this.setInfo(response.data)
             this.$swal({
               position: 'center',
               icon: 'success',
@@ -496,11 +441,25 @@ export default {
             })
             localStorage.setItem('userInfo', JSON.stringify(response.data))
           } else {
-            this.showError('Something went wrong.')
+            this.$swal({
+              position: 'center',
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong',
+              showConfirmButton: false,
+              timer: 1500
+            })
           }
         }).catch(err => {
           console.log(err)
-          this.showError('Something went wrong.')
+          this.$swal({
+            position: 'center',
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong',
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
       } else {
         console.log(this.$v)
