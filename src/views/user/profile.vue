@@ -274,35 +274,14 @@
                     </div>
                   </div>
                 </div>
-                <!--<div class="row">
-                  <div class="col-lg-6" v-if="userSettings.bloodGroups">
-                    <div class="checkout__input">
-                      <p>Visiting Days<span>*</span></p>
-                      <select
-                        v-model="user.doctor.visiting_days"
-                        class="form-control"
-                      >
-                        <option v-for="(value, key, index) in userSettings.bloodGroups" :key="value+index" :value="value">{{ key }}</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="checkout__input">
-                      <p>Visiting Hours<span>*</span></p>
-                      <input
-                        class="form-control"
-                        type="text"
-                        v-model="user.doctor.visiting_hrs"
-                        placeholder="Visiting Hours"
-                        autocomplete="off"
-                      />
-                    </div>
-                  </div>
-                </div>-->
-                <div class="row">
+                <div class="row" v-if="user.user_type == 'DOCTOR'">
                   <div class="col-lg-12">
                     <div class="checkout__input">
-                      <p>Doctor Schedule <i class="btn fa fa-plus-square-o" v-on:click="scheduleForm"></i></p>
+                      <p v-on:click="scheduleForm" title="Appointment Schedule">
+                        <span style="background: cadetblue; color: aliceblue;" class="btn primary-btn">
+                          <i class="fa fa-user-md"></i> <b>Doctor Schedule</b>
+                        </span>
+                      </p>
                       <schedules v-if="addSchedule" :user="user"/>
                     </div>
                   </div>
@@ -376,7 +355,7 @@ export default {
   },
   methods: {
     scheduleForm () {
-      this.addSchedule = true
+      this.addSchedule = !this.addSchedule
     },
     checkCookie () {
       if (!localStorage.getItem('token')) {

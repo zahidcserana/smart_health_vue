@@ -2,14 +2,14 @@
   <div class="m-section" style="margin: 0px; margin-top: 20px;">
     <div class="m-section__content">
       <div class="table-responsive">
-        <form class="m-login__form m-form">
-          <table class="table">
+        <form class="m-login__form m-form" id="schedule_form">
+          <table class="table table-bordered">
           <thead>
           <tr>
             <th>Day</th>
-            <th>Open?</th>
-            <th>Open?</th>
-            <th>Close</th>
+            <th>Is Open?</th>
+            <th>Open Time</th>
+            <th>Close Start</th>
           </tr>
           </thead>
           <tbody>
@@ -19,6 +19,7 @@
                 v-model="schedule.day"
                 class="form-control"
               >
+                <option value="">--Select One--</option>
                 <option v-for="(d, index) in days" :key="index" :value="d.value">{{ d.name }}</option>
               </select>
             </td>
@@ -27,11 +28,13 @@
             </td>
             <td>
               <select name="hourStart" class="form-control" v-model="schedule.startTime">
+                <option value="">--Select One--</option>
                 <option v-for="(h) in hoursGroup" :key="h.value" :value="h.value">{{h.text}}</option>
               </select>
             </td>
             <td>
               <select name="hourEnd" class="form-control" v-model="schedule.endTime">
+                <option value="">--Select One--</option>
                 <option v-for="(h) in hoursGroup" :key="h.value" :value="h.value">{{h.text}}</option>
               </select>
             </td>
@@ -53,10 +56,10 @@
       </div>
     </div>
     <div class="shoping__cart__table">
-      <table class="table table-responsive">
+      <table class="table table-responsive table-bordered">
         <thead>
         <tr>
-          <th width="30%" class="shoping__product">Day</th>
+          <th width="30%">Day</th>
           <th width="30%">Start Time</th>
           <th width="30%">End Time</th>
           <th width="30%">Status</th>
@@ -69,13 +72,13 @@
             <h5>{{ item.day | dayName }}</h5>
           </td>
           <td class="shoping__cart__price">
-            {{item.start_time}}
+            <h5>{{item.start_time}}</h5>
           </td>
           <td class="shoping__cart__price">
-            {{item.end_time}}
+            <h5>{{item.end_time}}</h5>
           </td>
           <td class="shoping__cart__price">
-            {{ item.status ? 'Active' : 'Inactive' }}
+            <span class="btn" :class="item.status | statusFilter">{{ item.status ? 'Active' : 'Inactive' }}</span>
           </td>
           <td>
             <a v-on:click="view(item)" class="btn btn-info"><i class="fa fa-pencil-square-o"></i></a>
@@ -91,7 +94,6 @@
 import { Schedule } from './models/DoctorScheduleModel'
 import Switches from 'vue-switches'
 import { saveSchedule, scheduleList, updateSchedule } from '../api/doctor'
-import $ from 'jquery'
 import { weekdays, HoursGroup } from '../assets/utils/common'
 
 export default {
@@ -122,14 +124,18 @@ export default {
     }
   },
   mounted () {
-    $(document).ready(function () {
-    })
+    this.reset()
   },
   computed: {},
   created () {
     this.getScheduleList()
   },
   methods: {
+    reset () {
+      this.schedule.day = ''
+      this.schedule.startTime = ''
+      this.schedule.endTime = ''
+    },
     view (item) {
       this.edit = true
       console.log(item)
@@ -150,6 +156,14 @@ export default {
         if (res.status) {
           this.schedules = []
           this.schedules = res.data
+          this.$swal({
+            position: 'center',
+            icon: 'success',
+            title: res.message,
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.reset()
         }
       }).catch(err => {
         console.log(err)
@@ -187,12 +201,10 @@ export default {
       this.doctorTime.day = formData.day
       this.doctorTime.start_time = formData.startTime
       this.doctorTime.end_time = formData.endTime
-      console.log(this.doctorTime)
       saveSchedule(this.doctorTime).then(response => {
         if (response.status) {
           this.fetchError = null
           this.schedules = response.data
-
           this.$swal({
             position: 'center',
             icon: 'success',
@@ -200,7 +212,7 @@ export default {
             showConfirmButton: false,
             timer: 1500
           })
-          localStorage.setItem('userInfo', JSON.stringify(response.data))
+          this.reset()
         } else {
           this.$swal({
             position: 'center',
@@ -228,6 +240,13 @@ export default {
     Switches
   },
   filters: {
+    statusFilter (status) {
+      const statusMap = {
+        1: 'btn-success',
+        0: 'btn-danger'
+      }
+      return statusMap[status]
+    },
     dayName (day) {
       return weekdays.find(f => f.value === day).name
     }
