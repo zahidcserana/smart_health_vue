@@ -4,54 +4,56 @@
       <div class="table-responsive">
         <form class="m-login__form m-form" id="schedule_form">
           <table class="table table-bordered">
-          <thead>
-          <tr>
-            <th>Day</th>
-            <th>Is Open?</th>
-            <th>Open Time</th>
-            <th>Close Start</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>
-              <select
-                v-model="schedule.day"
-                class="form-control"
-              >
-                <option value="">--Select One--</option>
-                <option v-for="(d, index) in days" :key="index" :value="d.value">{{ d.name }}</option>
-              </select>
-            </td>
-            <td>
-              <switches v-model="schedule.isOpen" theme="bulma" color="blue" type-bold="true"></switches>
-            </td>
-            <td>
-              <select name="hourStart" class="form-control" v-model="schedule.startTime">
-                <option value="">--Select One--</option>
-                <option v-for="(h) in hoursGroup" :key="h.value" :value="h.value">{{h.text}}</option>
-              </select>
-            </td>
-            <td>
-              <select name="hourEnd" class="form-control" v-model="schedule.endTime">
-                <option value="">--Select One--</option>
-                <option v-for="(h) in hoursGroup" :key="h.value" :value="h.value">{{h.text}}</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="5" class="text-right">
-              <button v-if="!edit" type="button" class="btn btn-dark"
-                      v-bind:class="{ 'm-loader m-loader--light m-loader--right': loading }" v-on:click="submit()">Submit
-              </button>
+            <thead>
+            <tr>
+              <th>Day</th>
+              <th>Is Open?</th>
+              <th>Open Time</th>
+              <th>Close Start</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                <select
+                  v-model="schedule.day"
+                  class="form-control"
+                >
+                  <option value="">--Select One--</option>
+                  <option v-for="(d, index) in days" :key="index" :value="d.value">{{ d.name }}</option>
+                </select>
+              </td>
+              <td>
+                <switches v-model="schedule.isOpen" theme="bulma" color="blue" type-bold="true"></switches>
+              </td>
+              <td>
+                <select name="hourStart" class="form-control" v-model="schedule.startTime">
+                  <option value="">--Select One--</option>
+                  <option v-for="(h) in hoursGroup" :key="h.value" :value="h.value">{{h.text}}</option>
+                </select>
+              </td>
+              <td>
+                <select name="hourEnd" class="form-control" v-model="schedule.endTime">
+                  <option value="">--Select One--</option>
+                  <option v-for="(h) in hoursGroup" :key="h.value" :value="h.value">{{h.text}}</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5" class="text-right">
+                <button v-if="!edit" type="button" class="btn btn-dark"
+                        v-bind:class="{ 'm-loader m-loader--light m-loader--right': loading }" v-on:click="submit()">
+                  Submit
+                </button>
 
-              <button v-if="edit" type="button" class="btn btn-dark"
-                      v-bind:class="{ 'm-loader m-loader--light m-loader--right': loading }" v-on:click="update()">Update
-              </button>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+                <button v-if="edit" type="button" class="btn btn-dark"
+                        v-bind:class="{ 'm-loader m-loader--light m-loader--right': loading }" v-on:click="update()">
+                  Update
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </form>
       </div>
     </div>
@@ -86,6 +88,11 @@
         </tr>
         </tbody>
       </table>
+      <p v-on:click="getDoctorSlot" title="Appointment Schedule">
+          <span style="background: tan; color: aliceblue;" class="btn primary-btn">
+            <i class="fa fa-user-md"></i> <b>View Slot</b>
+          </span>
+      </p>
     </div>
   </div>
 </template>
@@ -93,7 +100,7 @@
 <script>
 import { Schedule } from './models/DoctorScheduleModel'
 import Switches from 'vue-switches'
-import { saveSchedule, scheduleList, updateSchedule } from '../api/doctor'
+import { saveSchedule, scheduleList, updateSchedule, doctorSlot } from '../api/doctor'
 import { weekdays, HoursGroup } from '../assets/utils/common'
 
 export default {
@@ -106,6 +113,7 @@ export default {
   data () {
     return {
       schedules: null,
+      slots: null,
       enabled: false,
       edit: false,
       loading: false,
@@ -131,6 +139,22 @@ export default {
     this.getScheduleList()
   },
   methods: {
+    getDoctorSlot () {
+      doctorSlot(this.user.id).then(res => {
+        if (res.status) {
+          this.slots = res.data
+        } else {
+          this.$swal({
+            position: 'center',
+            icon: 'error',
+            title: 'Oops...',
+            text: res.message,
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      })
+    },
     reset () {
       this.schedule.day = ''
       this.schedule.startTime = ''

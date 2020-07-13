@@ -219,7 +219,7 @@ export const weekdays = [
     name: 'Saturday'
   },
   {
-    value: 7,
+    value: 0,
     name: 'Sunday'
   }
 ]

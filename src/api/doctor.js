@@ -30,3 +30,10 @@ export function scheduleList (doctorId) {
     method: 'get'
   })
 }
+
+export function doctorSlot (doctorId) {
+  return request({
+    url: `${env.api_url}/doctor-slot/${doctorId}`,
+    method: 'get'
+  })
+}
