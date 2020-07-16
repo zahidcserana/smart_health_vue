@@ -2,3 +2,16 @@
     padding: 6px;
     background: burlywood;
 }
+.doctor-slot {
+    text-align: center;
+}
+.slot-btn {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 13px 30px 12px;
+    background: #0d8a8a;
+    border: none;
+}

@@ -14,7 +14,7 @@ const userModel = {
     specialty_id: 0,
     qualification_details: '',
     designation_details: '',
-    bmdc_reg_no: '',
+    bmdc_reg_no: null,
     chamber1_address: '',
     chamber2_address: '',
     chamber1_contact_no: '',

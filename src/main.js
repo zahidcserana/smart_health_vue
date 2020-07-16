@@ -5,6 +5,10 @@ import store from './store'
 import Vuelidate from 'vuelidate'
 import VueSweetalert2 from 'vue-sweetalert2'
 import Switches from 'vue-switches'
+import moment from 'moment'
+
+Vue.use(moment)
+Vue.use(require('vue-moment'))
 
 Vue.use(VueSweetalert2)
 

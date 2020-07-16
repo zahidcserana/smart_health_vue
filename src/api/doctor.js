@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 import { env } from '@/utils'
 
-export function getInfo () {
+export function doctorList () {
   return request({
-    url: `${env.api_url}/me`,
-    method: 'post'
+    url: `${env.api_url}/doctors`,
+    method: 'get'
   })
 }
 

@@ -1,0 +1,1851 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap);
+#docList {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 45px 0
+}
+
+li>u>a:hover {
+    color: #034e9f
+}
+
+li>u>a {
+    color: #b7274c
+}
+
+#docList .docListCont .docCont .docBox {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px #00000080;
+    height: 440px
+}
+
+#docList .docListCont .docCont {
+    padding: 30px
+}
+
+#docList .docListCont .docCont .docBox .docName h2 {
+    font-family: MontserratSB;
+    font-size: 12px;
+    color: #121212;
+    line-height: 16px;
+    padding: 10px 0
+}
+
+#docList .docListCont .docCont .docBox .docDesig p {
+    font-family: Montserrat;
+    font-size: 10px;
+    line-height: 13px;
+    color: #121212;
+    padding-bottom: 12px;
+    text-transform: uppercase
+}
+
+#docList .docListCont .docCont .docBox .cta .btn {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 9px 0;
+    margin-bottom: 10px
+}
+
+#docList .docListCont .docCont .docBox .cta .btn>a {
+    width: 100%;
+    font-family: MontserratBold;
+    font-size: 10px;
+    line-height: 13px;
+    padding: 10px 0
+}
+
+#docList .docListCont .docCont .docBox .cta .btn a {
+    color: inherit
+}
+
+#docList .docListCont .docCont .docBox .cta .ga {
+    border: 0;
+    background-color: #b7274c;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #b7274c
+}
+
+#docList .docListCont .docCont .docBox .cta .ga>a {
+    padding: 14px 55px;
+    font-size: 14px
+}
+
+#docList .docListCont .docCont .docBox .cta .ga:hover,
+#docList .docListCont .docCont .docBox .cta .vp:hover {
+    background-color: #034e9f;
+    border: 1px solid #034e9f;
+    color: #fff;
+    box-shadow: #00000070 0 10px 20px
+}
+
+#docList .docListCont .docCont .docBox .cta .vp {
+    background-color: transparent;
+    border: 1px solid #034e9f;
+    color: #034e9f;
+    border-radius: 6px;
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
+#docList .docListCont .docCont .docBox .cta .vp>a {
+    font-size: 14px;
+    padding: 13px 72px
+}
+
+#docList .docListCont .docCont .docBox .location {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    background-color: #b7274c;
+    padding: 5px 15px
+}
+
+#docList .docListCont .docCont .docBox .location span {
+    font-family: Montserrat;
+    font-size: 11px;
+    line-height: 14px;
+    color: #fff
+}
+
+#docList .docListCont .docCont .docBox .docImg {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px
+}
+
+#docList .docListCont .docCont .docBox .docImg img {
+    width: 100%;
+    border-radius: 10px
+}
+
+#docList .docListCont .viewAllDoc .btn {
+    border: 1px solid #b7274c;
+    background-color: #b7274c;
+    font-family: MontserratBold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #fff;
+    padding: 16px 61px;
+    margin-top: 54px
+}
+
+#docList .docListCont .viewAllDoc .btn:hover {
+    background-color: #fff;
+    color: #034e9f;
+    background-color: 1px solid #034e9f
+}
+
+#docList .cta {
+    position: relative;
+    bottom: 0
+}
+
+#docList .docDesig {
+    height: 50px
+}
+
+@media only screen and (max-width:767px) {
+    #docList {
+        padding: 0 0 20px
+    }
+    #docList .docListCont .docCont {
+        padding: 15px
+    }
+    #docList .row {
+        margin-right: 0;
+        margin-left: 0
+    }
+    #docList .docListCont .viewAllDoc .btn {
+        margin-top: 20px;
+        font-size: 14px;
+        padding: 6px 34px
+    }
+    #docList .docListCont .docCont .docBox {
+        height: auto
+    }
+    #docList .docListCont .docCont .docBox .cta .ga>a,
+    #docList .docListCont .docCont .docBox .cta .vp>a {
+        font-size: 12px;
+        padding: 11px 30px
+    }
+    #docList .docListCont .docCont .docBox .cta .vp>a {
+        padding: 11px 46px
+    }
+    #docList .cta {
+        position: static
+    }
+    #docList .docListCont .docCont .docBox .docImg {
+        height: 145px
+    }
+    #docList .docDesig {
+        height: auto
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+    #docList {
+        padding: 30px 0
+    }
+    #docList .docListCont .docCont {
+        padding: 15px
+    }
+    #docList .row {
+        margin-right: 0;
+        margin-left: 0
+    }
+    #docList .docListCont .viewAllDoc .btn {
+        margin-top: 20px;
+        padding: 9px 46px;
+        font-size: 16px
+    }
+    #docList .docListCont .docCont .docBox {
+        height: 350px
+    }
+    #docList .docListCont .docCont .docBox .cta .ga>a {
+        font-size: 12px;
+        padding: 8px 13px
+    }
+    #docList .docListCont .docCont .docBox .cta .vp>a {
+        font-size: 12px;
+        padding: 8px 29px
+    }
+    #docList .docListCont .docCont .docBox .cta .btn {
+        margin-bottom: 5px;
+        padding: 5px 0
+    }
+    #docList .cta {
+        bottom: 0
+    }
+    #faq .panel-default>.panel-heading h4 {
+        font-size: 14px
+    }
+    #docList .docDesig {
+        height: 80px
+    }
+    #docList .docListCont .docCont .docBox .docImg {
+        height: 120px
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    #docList {
+        padding: 50px 0
+    }
+    #docList .docListCont .viewAllDoc .btn {
+        padding: 12px 56px
+    }
+    #docList .docListCont .docCont .docBox {
+        height: 415px
+    }
+    #docList .docListCont .docCont .docBox .cta .ga>a {
+        padding: 12px 18px
+    }
+    #docList .docListCont .docCont .docBox .cta .vp>a {
+        padding: 12px 37px
+    }
+    #docList .docListCont .docCont .docBox .cta .btn {
+        margin-bottom: 5px
+    }
+    #docList .docDesig {
+        height: 70px
+    }
+    #docList .docListCont .docCont .docBox .docImg {
+        height: 163px
+    }
+    .doc-listing-appointment .radio-btn ul li {
+        width: 20%!important
+    }
+}
+
+.banner-appointment {
+    background-image: url(img/smBg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px
+}
+
+section#careerL {
+    margin-top: 8em
+}
+
+.position-rel {
+    position: relative
+}
+
+.img-doc-appont p {
+    position: absolute;
+    top: 16px;
+    background-color: #024e9f;
+    left: 20px;
+    color: #fff;
+    padding: 1px 10px;
+    font-weight: 300;
+    font-size: 12px
+}
+
+.img-doc-appont img {
+    height: 100%
+}
+
+.doc-profile-appoint {
+    margin-top: 55px;
+    background: #fff;
+    border-radius: 8px;
+    height: 230px
+}
+
+.doc-profile-appoint h1,
+.doc-profile-appoint h3 {
+    font-size: 20px;
+    font-weight: bolder;
+    line-height: 40px;
+    text-align: left;
+    font-family: Montserrat;
+    color: #034e9f;
+    text-transform: uppercase;
+    opacity: 1;
+    letter-spacing: .23px
+}
+
+.doc-profile-appoint p {
+    font-size: 12px;
+    line-height: 20px;
+    color: #707070;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden
+}
+
+.doc-profile-appoint span {
+    font-size: 12px;
+        line-height: 15px;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    color: #240f39;
+    text-transform: capitalize;
+    opacity: 1
+}
+
+.doc-profile-appoint h5 {
+    font-size: 13px;
+    color: #000;
+    font-weight: 600;
+    line-height: 13px;
+    margin-top: 25px
+}
+
+.img-doc-appont p {
+    color: #fff
+}
+
+.padding-25 {
+    padding: 25px
+}
+
+.img-doc-appont img {
+    height: 230px;
+    object-position: top;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+    width: 95%;
+    margin-left: 0
+}
+
+.doc-description-tabs {
+    background: #fff 0 0 no-repeat padding-box;
+    box-shadow: 0 0 22px #02020265;
+    border-radius: 8px;
+    top: -98px;
+    position: relative
+}
+
+.radio-btn {
+    text-align: center
+}
+
+.padding-left-10 {
+    padding-left: 10px!important
+}
+
+.padding-top-10 {
+    padding-top: 10px!important
+}
+
+.doc-description-tabs li img {
+    position: absolute;
+    top: 18px;
+    z-index: 100;
+    left: 15px
+}
+
+.doc-description-tabs li a span {
+    text-align: left;
+    letter-spacing: .13px;
+    color: #434343!important;
+    text-transform: uppercase;
+    line-height: 17px;
+    font-size: 10px;
+    margin-left: 27px;
+    font-weight: 500;
+    display: block
+}
+
+.doc-description-tabs li a img {
+    position: relative;
+    z-index: 100
+}
+
+.doc-description-tabs ul.nav.nav-pills {
+    background: #fbfbfb 0 0 no-repeat padding-box;
+    border-radius: 8px 8px 0 0
+}
+
+.position-rel {
+    position: relative
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    text-decoration: transparent;
+    background-color: transparent
+}
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+    color: transparent;
+    background-color: transparent
+}
+
+.border-left-divider {
+    border-left: 1px solid #b4e3d7
+}
+
+.doc-description-tabs>.nav-pills>li.active {
+    background-color: #e5f6f1!important;
+    border-bottom: 2px solid #b7384c
+}
+
+.doc-description-tabs>.nav-pills>li.active .pink-color-icon {
+    opacity: 1;
+    width: 23px
+}
+
+.doc-description-tabs>.nav-pills>li.active .black-color-icon {
+    opacity: 0;
+    width: 23px
+}
+
+.doc-description-tabs>.nav-pills>li.active a span {
+    color: #b7384c!important
+}
+
+.doc-description-tabs ul {
+    margin-bottom: 0;
+    list-style-type: circle
+}
+
+.doc-description-tabs .tab-content {
+    padding: 25px 18px 20px 0
+}
+
+.doc-description-tabs ul li {
+    letter-spacing: .17px;
+    color: #121212;
+    font-size: 13px;
+    font-weight: 400
+}
+
+.doc-description-tabs .tab-content ul li {
+    line-height: 21px;
+    margin-bottom: 4px;
+    display: flex
+}
+
+.padding-0 {
+    padding: 0
+}
+
+.doc-description-tabs .tab-content ul li::before {
+    content: "\2022";
+    color: #b7384c;
+    font-weight: 700;
+    display: inline-block;
+    width: 5px;
+    margin-right: 6px
+}
+
+.height-auto {
+    height: auto!important
+}
+
+.img-doc-listing p {
+    background-color: #b7384c!important
+}
+
+.doc-listing-appointment {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 8px
+}
+
+.margin-top-58 {
+    margin-top: 58px
+}
+
+.doc-profile-appoint {
+    box-shadow: 0 6px 12px #00000029
+}
+
+.booking-btn {
+    background: #b7274c 0 0 no-repeat padding-box;
+    border-radius: 6px;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    padding: 6px 43px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.booknowSection {
+    margin-top: 55px;
+    background-color: #fff;
+    border-radius: 4px
+}
+
+.booknowSection .nav-pills .owl-stage-outer {
+    height: 60px
+}
+
+.section-heading {
+    background: #034e9f;
+    border-radius: 4px 4px 0 0;
+    padding: 0 10px
+}
+
+.heading-para {
+    text-align: left;
+    letter-spacing: 0;
+    color: #fff;
+    opacity: .75;
+    padding: 0 5px;
+    font-size: 12px;
+    padding-top: 20px;
+    line-height: 0
+}
+
+.select-section {
+    display: inline-flex;
+    padding: 0 5px
+}
+
+.subHeading {
+    color: #fff;
+    font-size: 11px;
+    padding: 5px;
+    line-height: 40px
+}
+
+.select-dropDown {
+    color: #fff;
+    background: #034e9f;
+    font-size: 12px;
+    border: 0;
+    box-shadow: none
+}
+
+.section1-paragraph {
+    color: #fff;
+    font-size: 11px;
+    padding: 0 5px
+}
+
+.section-heading p:nth-child(3) {
+    margin-top: -21px
+}
+
+.section2 {
+    padding: 0 10px;
+    margin-bottom: 0;
+    /*box-shadow: 0 0 22px #02020265*/
+}
+
+.section2-headpara {
+    font-size: 12px;
+    padding: 0 5px
+}
+
+.booknowSection a {
+    color: #000!important;
+    background: 0 0;
+    font-size: 12px;
+    font-weight: 900!important;
+    text-align: center;
+    opacity: .6;
+    border-radius: 0;
+    text-align: center
+}
+
+.booknowSection a small {
+    color: #b7274c;
+    font-size: 61%
+}
+
+.booknowSection a:hover {
+    text-decoration: none
+}
+
+.booknowSection a {
+    color: #000;
+    font-size: 12px;
+    text-align: center
+}
+
+.booknowSection .item {
+    text-align: center!important
+}
+
+.active_class p {
+    text-align: center!important
+}
+
+.booknowSection a small {
+    color: #9fa5ac;
+    text-align: left;
+    font-size: 61%
+}
+
+.doctor-list-booking {
+    margin-top: 10px;
+    background-color: transparent
+}
+
+.doctor-list-booking .section2 {
+    box-shadow: none!important
+}
+
+.doctor-list-booking .nav-pills {
+    width: 49%;
+    margin: auto
+}
+
+.doctor-list-booking button.owl-next {
+    right: -416px!important
+}
+
+.step-1-booking {
+    position: relative;
+    left: -100px
+}
+
+.red {
+    color: red!important;
+    font-size: 12px!important
+}
+
+.radio-btn-doc-listing {
+    width: 80%;
+    margin: 10px auto 20px;
+    text-align: left!important
+}
+
+.button-booking-listing {
+    width: 200px!important;
+    height: 40px!important;
+    background: #034e9f 0 0 no-repeat padding-box;
+    border-radius: 6px!important;
+    float: right!important;
+    margin-bottom: 30px!important
+}
+
+.doctor-list-booking p {
+    font-size: 18px;
+    color: #240f39;
+    margin-bottom: 35px
+}
+
+.sticky {
+    position: fixed;
+    top: 40px;
+    width: 360px
+}
+
+.booknowSection .nav-pills>li>a {
+    border-radius: 4px;
+    font-weight: 500!important;
+    opacity: .4
+}
+
+.booknowSection .nav-pills p {
+    line-height: 0;
+    text-align: center
+}
+
+.booknowSection .nav-pills .owl-stage {
+    display: flex
+}
+
+.booknowSection .nav-pills .owl-stage-outer {
+    overflow: hidden;
+    border: 1px
+}
+
+div#quali_box span {
+    height: 94px;
+    overflow-y: scroll
+}
+
+.bookNow {
+    background: #034e9f;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 15px;
+    font-weight: 400
+}
+
+.booknowSection small {
+    line-height: 15px
+}
+
+.booknowSection .owl-nav.disabled {
+    height: 10px
+}
+
+button.owl-prev {
+    border: none;
+    background-color: transparent;
+    top: -51px;
+    position: relative
+}
+
+.booknowSection button.owl-prev {
+    border: none;
+    background-color: transparent;
+    top: -51px;
+    position: relative
+}
+
+.doc-description-tabs ul .row h4 {
+    margin-bottom: 11px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #b7384c
+}
+
+.booknowSection button.owl-next {
+    border: none;
+    background-color: transparent;
+    top: -51px;
+    right: -310px;
+    position: relative
+}
+
+.booknowSection .nav-pills .owl-stage-outer {
+    overflow: hidden;
+    border: 1px;
+    width: 84%;
+    margin: auto
+}
+
+.radio-button {
+    border: 1px solid #9fa5ac;
+    border-radius: 4px;
+    color: #b7274c;
+    background-color: #fff;
+    padding: 5px 15px;
+    margin-bottom: 13px;
+    margin-right: 7px
+}
+
+.radio-button:hover {
+    background-color: #b7274c;
+    color: #fff;
+    border: 1px solid #b7274c
+}
+
+.cur-pointer {
+    cursor: pointer
+}
+
+.p-0 {
+    padding: 0!important
+}
+
+.doc-description-tabs .tab-content .tab-pane.active {
+    height: 359px;
+    overflow-y: scroll;
+    -ms-overflow-style: none
+}
+
+.fixed-form {
+    position: absolute;
+    top: 0;
+    width: 360px;
+    z-index: 99
+}
+
+.pink-color-icon {
+    opacity: 0;
+    width: 23px
+}
+
+.display-flex {
+    display: flex;
+    justify-content: center
+}
+
+.display-flex .btn {
+    background: 0 0;
+    color: #024e9f;
+    font-size: 18px;
+    padding-left: 0;
+    margin-top: 2px
+}
+
+div#navbar-new .owl-item.active a p small:hover {
+    color: #b7384c
+}
+
+.mb-0 {
+    margin-bottom: 0
+}
+
+.height-50 {
+    height: 50px
+}
+
+span.resend-otp {
+    position: relative;
+    top: -25px;
+    right: -627px!important
+}
+
+.width-booking-form {
+    width: 80%;
+    margin: auto;
+    margin-top: 24px
+}
+
+.width-booking-form h4 {
+    font-size: 20px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 14px;
+    font-family: Montserrat
+}
+
+div.select-time .owl-carousel {
+    width: 46%;
+    margin: auto
+}
+
+span.backtodatetime {
+    position: relative;
+    color: #707070;
+    left: 15px
+}
+
+span.backtoconfirm {
+    position: relative;
+    top: 20px;
+    left: -75px;
+    color: #707070!important
+}
+
+span.backtootp {
+    position: relative;
+    top: 20px;
+    left: 46%
+}
+
+span.backtoconfirm i,
+span.backtodatetime i,
+span.backtootp i {
+    margin-right: 7px
+}
+
+.doc-profile-appoint .owl-nav .owl-next span,
+.doc-profile-appoint .owl-nav .owl-prev span {
+    font-size: 25px
+}
+
+.price_tag .select-dropDown {
+    margin-top: 9px
+}
+
+.price_tag .form-group {
+    margin-bottom: 0!important
+}
+
+div#quali_box p {
+    height: 58px;
+    overflow-y: auto
+}
+
+.booknowSection button.owl-prev span {
+    font-size: 24px
+}
+
+.booknowSection button.owl-next span {
+    font-size: 24px
+}
+
+.booknowSection .formSection {
+    padding: 20px 5px
+}
+
+.booknowSection .formSection .form-control {
+    background: #f3f3f3;
+    border: 1px solid #b9c6e0;
+    border-radius: 6px;
+    opacity: 1
+}
+
+.booknowSection .formSection .red {
+    text-align: left;
+    letter-spacing: 0;
+    color: red;
+    opacity: 1;
+    font-size: 12px!important;
+    line-height: 18px
+}
+
+div#confirm-appointment h4 {
+    margin-bottom: 15px
+}
+
+.otp-appointment h3 {
+    letter-spacing: .2px;
+    color: #034e9f;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px
+}
+
+.otp-appointment p {
+    letter-spacing: 0;
+    color: #000;
+    line-height: 30px;
+    padding-top: 10px;
+    font-size: 13px
+}
+
+.otp-appointment input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 14px 8px 3px 7px
+}
+
+.otp-appointment input::placeholder {
+    color: #9fa5ac
+}
+
+.otp-appointment p span {
+    float: right;
+    line-height: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    height: 16px
+}
+
+.otp-appointment span {
+    letter-spacing: 0;
+    color: #034e9f;
+    font-size: 12px
+}
+
+.thanks-appointment {
+    padding: 26px 13px 10px 13px
+}
+
+.thanks-appointment h3 {
+    letter-spacing: 0;
+    color: #034e9f;
+    font-size: 21px;
+    line-height: 26px;
+    font-weight: 600;
+    margin: 12px
+}
+
+.margin-top-10 {
+    margin-top: 10px
+}
+
+.margin-top-15 {
+    margin-top: 15px
+}
+
+.doctor-list-layout .owl-next {
+    position: absolute;
+    right: 0;
+    top: 9px
+}
+
+.doctor-list-layout .owl-prev {
+    position: absolute;
+    left: -36px;
+    top: 9px
+}
+
+.thanks-appointment p {
+    letter-spacing: .13px;
+    color: #240f39;
+    font-size: 12px;
+    line-height: 25px
+}
+
+.view-more-booking {
+    padding: 2px 32px!important;
+    margin-left: 0px;
+    font-weight: 500!important;
+    margin-top: 10px!important;
+    font-size: 14px!important;
+    font-family: Montserrat, sans-serif;
+    text-transform: capitalize
+}
+
+.sec-flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 0
+}
+
+.docListCont .img-doc-appont img {
+    width: 100%
+}
+
+.docListCont .img-doc-appont p {
+    top: 15px;
+    left: 18px
+}
+
+.radio-btn ul {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px
+}
+
+.radio-btn ul li {
+    color: #aaa;
+    display: block;
+    position: relative;
+    width: 33%;
+    height: 40px;
+    float: left;
+    border-bottom: 0 solid #333
+}
+
+.radio-btn ul li input[type=radio] {
+    position: absolute;
+    visibility: hidden
+}
+
+.radio-btn ul li label {
+    display: block;
+    position: relative;
+    height: 34px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all .25s linear;
+    border: 1px solid #9fa5ac;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: #b7274c;
+    border-radius: 5px;
+    letter-spacing: 0;
+    color: #b7274c;
+    line-height: 13px;
+    padding: 0;
+    margin: 0 5px;
+    font-weight: 300;
+    padding-top: 3px
+}
+
+.radio-btn ul li:hover label {
+    color: #fff;
+    background: #b7274c
+}
+
+.radio-btn ul li .check {
+    display: block;
+    position: absolute;
+    border: 5px solid #aaa;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    top: 30px;
+    left: 20px;
+    z-index: 5;
+    transition: border .25s linear;
+    -webkit-transition: border .25s linear;
+    position: absolute;
+    visibility: hidden
+}
+
+.radio-btn ul li:hover .check {
+    border: 5px solid #fff
+}
+
+.radio-btn ul li .check::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    top: 5px;
+    left: 5px;
+    margin: auto;
+    transition: background .25s linear;
+    -webkit-transition: background .25s linear
+}
+
+input[type=radio]:checked~.check {
+    border: 5px solid #b7274c
+}
+
+input[type=radio]:checked~.check::before {
+    background: #b7274c
+}
+
+input[type=radio]:checked~label {
+    display: block;
+    position: relative;
+    height: 34px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all .25s linear;
+    border: 1px solid #b7274c;
+    margin-left: 10px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 13px;
+    padding: 0;
+    margin: 0 5px;
+    font-weight: 900;
+    padding-top: 3px;
+    background: #b5274b
+}
+
+div.appointment-open {
+    position: relative;
+    width: 100%;
+    margin-top: 0;
+    padding: 0 10px;
+    margin-bottom: 0;
+    box-shadow: 0 0 22px #02020265
+}
+
+.radio-btn ul {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    float: left
+}
+
+p.days_style {
+    padding: 6px;
+    font-size: 12px!important;
+    font-weight: 500;
+    text-align: left
+}
+
+.doc-listing-appointment .radio-btn ul li {
+    color: #aaa;
+    display: block;
+    position: relative;
+    width: 16%;
+    height: 46px;
+    float: left;
+    border-bottom: 0 solid #333
+}
+
+.doc-listing-appointment .item {
+    padding-bottom: 0px;
+}
+
+.doc-listing-appointment .active_class p small {
+    color: #b7274c!important
+}
+
+.doc-listing-appointment .step-1-booking {
+    margin: -1px -5px 22px 18px!important;
+    font-family: Montserrat, sans-serif!important;
+    font-size: 14px
+}
+
+.doc-listing-appointment .radio-btn ul li label {
+    font-size: 15px!important
+}
+
+.radio-btn ul li input[type=radio] {
+    position: absolute;
+    visibility: inherit;
+    opacity: 0
+}
+
+.doc-listing-appointment .col-xs-12.col-sm-12.col-md-12.col-lg-12 {
+    padding-left: 0!important
+}
+
+.radio-btn ul li label {
+    display: block;
+    position: relative;
+    height: 34px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all .25s linear;
+    border: 1px solid #9fa5ac;
+    margin-left: 10px;
+    border-radius: 5px;
+    letter-spacing: 0;
+    color: #b7274c;
+    line-height: 25px;
+    padding: 0;
+    margin: 0 5px;
+    font-weight: 300;
+    padding-top: 3px;
+    text-align: center;
+    opacity: 1;
+    font-size: 12px;
+    font-weight: 500
+}
+
+.radio-btn ul li:hover label {
+    color: #fff;
+    background: #b7274c
+}
+
+.radio-btn ul li .check {
+    display: block;
+    position: absolute;
+    border: 5px solid #aaa;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    top: 30px;
+    left: 20px;
+    z-index: 5;
+    transition: border .25s linear;
+    -webkit-transition: border .25s linear;
+    position: absolute;
+    visibility: hidden
+}
+
+.radio-btn ul li:hover .check {
+    border: 5px solid #fff
+}
+
+.radio-btn ul li .check::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    top: 5px;
+    left: 5px;
+    margin: auto;
+    transition: background .25s linear;
+    -webkit-transition: background .25s linear
+}
+
+input[type=radio]:checked~.check {
+    border: 5px solid #b7274c
+}
+
+input[type=radio]:checked~.check::before {
+    background: #b7274c
+}
+
+.radio-btn {
+    text-align: center;
+    height: 175px;
+    overflow-y: auto
+}
+
+.radio-btn-doc-listing.text-center {
+    height: 120px
+}
+
+input[type=radio]:checked~label {
+    display: block;
+    position: relative;
+    height: 34px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all .25s linear;
+    border: 1px solid #b7274c;
+    margin-left: 10px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 25px;
+    padding: 0;
+    margin: 0 5px;
+    font-weight: 400;
+    padding-top: 3px;
+    background: #b5274b
+}
+
+div#error_otp {
+    float: left;
+    margin-top: -25px;
+    color: red;
+    margin-bottom: 10px;
+    width: 100%
+}
+
+.owl-nav {
+    height: 0
+}
+
+hr.new_hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid #fff
+}
+
+/*.apply {
+    color: red!important;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    line-height: 10px;
+    position: absolute
+}*/
+.apply {color: red!important; padding: 0; margin: 0px; line-height: 10px; position: absolute; font-size: 9px; margin-top: 0px;}
+.doc-listing-booking .section2-headpara {
+    font-size: 18px;
+    margin: 15px 0;
+    color: #240f39
+}
+
+.doc-listing-booking .display-flex .dropdown {
+    display: none;
+    align-items: center
+}
+
+.doc-listing-booking .display-flex .select-dropDown {
+    background: #fff;
+    color: #034e9f;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 500;
+    padding-left: 0
+}
+
+.doc-listing-booking .select-time a {
+    font-size: 18px;
+    color: #000;
+    cursor: pointer
+}
+
+.doc-listing-booking .owl-carousel p {
+    text-align: center!important
+}
+
+.doc-listing-booking .owl-carousel p small {
+    font-size: 15px;
+    color: #9fa5ac
+}
+
+.doc-listing-booking div.select-time .owl-carousel {
+    width: 58%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 15px
+}
+
+.doc-listing-booking .owl-nav .owl-next {
+    right: -30px
+}
+
+.doc-listing-booking .otp-appointment h3 {
+    margin-top: 0!important;
+    font-size: 25px!important;
+    color: #034e9f!important;
+    margin-bottom: 19px
+}
+
+.doc-listing-booking .otp-appointment input {
+    background: #fff
+}
+
+.doc-listing-booking span.resend-otp {
+    font-weight: 500
+}
+
+.doc-listing-booking .thanks-appointment h3 {
+    text-align: center!important;
+    font-size: 25px!important;
+    color: #034e9f!important
+}
+
+.doc-listing-booking .thanks-appointment p {
+    text-align: center!important;
+    font-size: 15px!important;
+    color: #240f39!important
+}
+
+.doc-listing-booking input {
+    border: 1px solid #b9c6e0;
+    background: #f3f3f3 0 0 no-repeat padding-box
+}
+
+.doc-listing-booking input::placeholder {
+    font-size: 18px
+}
+
+.doc-listing-booking .form-group span {
+    font-size: 18px;
+    color: #121212;
+    font-weight: 500
+}
+
+.doc-listing-booking span.backtodatetime {
+    display: inline;
+    left: 0
+}
+
+.doc-listing-booking .radio-inline {
+    font-size: 18px;
+    color: #121212;
+    margin-left: 9px
+}
+
+.doc-listing-appointment select {
+    color: #9fa5ac;
+    font-size: 18px
+}
+
+.doc-listing-appointment .otp-appointment p {
+    font-size: 14px!important;
+    color: #240f39!important
+}
+
+.doc-listing-booking .confirm-application {
+    padding: 0;
+    margin: 0
+}
+
+.doc-listing-appointment .otp-appointment h3 {
+    margin-top: 3px!important;
+    font-size: 25px!important;
+    color: #034e9f!important
+}
+
+.pr-0 {
+    padding-right: 0
+}
+
+::-webkit-scrollbar {
+    width: 4px
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b7274c;
+    border-radius: 10px
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b7274c
+}
+
+span.cursur-auto {
+    position: relative;
+    letter-spacing: 0;
+    color: #034e9f;
+    font-size: 12px
+}
+
+span.bookNow.bookNow1.button-booking-listing.confirm-application {
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 38px;
+}
+
+.main-center {
+    text-align: center!important
+}
+
+span.apply-error {
+    color: red!important;
+    font-size: 12px!important;
+    position: relative;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    font-weight: 500!important;
+    height: 10px;
+    margin-bottom: 10px!important;
+    float: left
+}
+
+.otp-appointment span {
+    cursor: pointer
+}
+
+.cursur-auto {
+    cursor: auto!important
+}
+
+span#otp_msg {
+    color: #b7274c;
+    line-height: 20px;
+    position: relative;
+    margin-top: -1em;
+    display: none
+}
+
+p.blocks {
+    display: inline-block
+}
+
+select.salutation {
+    background: #f3f3f3
+}
+
+.doc-listing-appointment .otp-appointment p span {
+    margin-bottom: 6px
+}
+
+.doc-listing-appointment .button-booking-listing.confirm-application {
+    margin-right: 0!important;
+    font-family: Montserrat;
+    font-size: 14px
+}
+
+.doc-listing-appointment .thanks-appointment h3 {
+    font-size: 25px;
+    margin-top: 45px
+}
+
+.doc-listing-appointment .thanks-appointment p {
+    font-size: 15px;
+    color: #240f39
+}
+
+.radio-select {
+    z-index: 1000;
+    height: 75%;
+    margin-top: 0;
+    width: 100%
+}
+
+.doc-listing-booking .select-time a:hover {
+    color: #000;
+    font-weight: 500
+}
+
+.doc-listing-booking .select-time a p small:hover {
+    color: #b7274c;
+    font-weight: 500
+}
+
+span.otp_msg {
+    color: #b7274c;
+    position: relative
+}
+
+hr.hr_line {
+    width: 98%!important;
+    position: relative;
+    top: 0;
+    right: 0;
+    opacity: 1;
+    border: 0 solid #dbe8ee;
+    margin-left: 18px;
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.error_otp {
+    color: red;
+    position: relative
+}
+
+span.resend-otp {
+    display: inline-block;
+    position: relative;
+    width: 20%;
+    float: right!important
+}
+
+p.desgn {
+    width: 100%;
+    float: left;
+    position: relative;
+    margin: 0;
+    min-height: 35px;
+}
+
+.left_texty {
+    float: left;
+    width: 100%
+}
+
+.main-box {
+    display: inline-block;
+    border-bottom: 2px solid #ccc;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:1200px) {
+    span.resend-otp {
+        position: relative;
+        top: -25px;
+        right: -514px!important
+    }
+    .doctor-list-booking .nav-pills {
+        width: 65%;
+        margin: auto
+    }
+    .radio-btn-doc-listing {
+        width: 65%
+    }
+    .doctor-list-booking button.owl-next {
+        right: -455px!important
+    }
+    .fixed-form {
+        position: absolute;
+        top: 0;
+        width: 328px;
+        z-index: 99
+    }
+}
+
+@media screen and (max-width:768px) {
+    .doc-listing-appointment {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 20px
+    }
+    .img-doc-appont img {
+        border-radius: 0px;
+    }
+    div.select-time .owl-carousel {
+        width: 60%;
+        margin: auto
+    }
+    span.resend-otp {
+        position: relative;
+        top: -25px;
+        right: -581px!important
+    }
+    .doc-description-tabs {
+        top: 35px
+    }
+    .fixed-form {
+        position: static;
+        width: 100%
+    }
+    .booknowSection a small {
+        color: #9fa5ac;
+        text-align: center;
+        font-size: 56%
+    }
+    .doctor-list-booking button.owl-next {
+        right: -404px!important
+    }
+    .width-booking-form {
+        width: 100%
+    }
+    .radio-btn-doc-listing {
+        width: 95%
+    }
+    .main-box {
+        display: inline-block;
+        border-bottom: 0 solid #ccc;
+        border-radius: 16px
+    }
+    p.desgn {
+        padding-left: 10px
+    }
+    .left_texty {
+        padding-left: 10px
+    }
+    .docListCont .doc-profile-appoint h3 {
+        padding-left: 10px
+    }
+}
+
+@media screen and (max-width:500px) {
+    .doc-description-tabs li a {
+        padding: 0;
+        text-align: left
+    }
+    .width-booking-form {
+        width: 100%
+    }
+    span.backtodatetime {
+        left: 84%
+    }
+    span.backtoconfirm {
+        left: 84%
+    }
+    span.otp-appointment {
+        left: 84%
+    }
+    .radio-btn {
+        text-align: center;
+        height: 318px!important;
+        overflow-y: scroll
+    }
+    .doctor-list-layout .owl-next {
+        position: absolute;
+        right: -27px!important;
+        top: 9px
+    }
+    .step-1-booking {
+        position: static
+    }
+    .radio-btn-doc-listing {
+        width: 100%;
+        text-align: center!important;
+        height: 153px;
+        overflow-y: scroll
+    }
+    span.resend-otp {
+        position: static;
+        float: right
+    }
+    .select-time .owl-item.active .item {
+        width: 135px
+    }
+    div#doc-profile-appoint .section2 {
+        height: 365px
+    }
+    div.select-time .owl-carousel {
+        width: 76%;
+        margin: auto
+    }
+    .height-50 {
+        height: 0
+    }
+    div.appointment-open {
+        box-shadow: none!important
+    }
+    .doctor-list-booking .nav-pills {
+        width: 100%;
+        margin: auto
+    }
+    .radio-btn-doc-listing {
+        width: 100%;
+        text-align: center!important
+    }
+    .display-flex .btn,
+    .doctor-list-booking p {
+        font-size: 12px
+    }
+    .button-booking-listing {
+        width: 100%!important;
+        margin: 0
+    }
+    .doctor-list-booking button.owl-next {
+        right: -312px!important
+    }
+    .pink-color-icon-mob {
+        position: relative!important;
+        left: -2px!important
+    }
+    .black-color-icon-mob {
+        position: relative!important;
+        left: 23px!important
+    }
+    .doc-description-tabs {
+        top: -92px
+    }
+    .img-doc-appont img {
+        padding: 0;
+        width: 100%;
+        margin-left: 0
+    }
+    .doc-description-tabs li.position-rel {
+        width: 19%
+    }
+    .doc-description-tabs li a img {
+        position: relative;
+        z-index: 100;
+        top: 0
+    }
+    .p-0 {
+        padding: 0
+    }
+    .doc-listing-appointment {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 20px
+    }
+    .doc-profile-appoint {
+        min-height: 230px;
+        height: auto
+    }
+    .banner-appointment {
+        min-height: 1200px
+    }
+    .booking-btn {
+            width: 310px;
+    margin-bottom: 5px;
+    }
+    .searchBtn > .booking-btn {
+        width: 100%;
+    margin-left: 0px;
+    }
+}
+section.testimonial-doc-profile h3 {
+    margin: 0 0 35px 0;
+    color: #b7384c;
+    font-size: 30px;
+}
+section.testimonial-doc-profile h5 {
+    text-align: center;
+    color: #024e9f;
+}
+.doctors-video {
+    background-color: #e5edf5;
+    padding: 70px 0;
+    margin-bottom: 40px;
+}
+.doctors-video img {
+    border-radius: 8px;
+    box-shadow: 0px 0px 22px #02020265;
+    cursor: pointer;
+}
+.testimonial-doc-profile {
+    padding-bottom: 50px;
+}
+.testimonial-doc-profile iframe{
+    border: none;
+}
+.testimonial-doc-wrap img{
+    border-radius: 8px;
+    box-shadow: 0px 0px 22px #02020265;
+}

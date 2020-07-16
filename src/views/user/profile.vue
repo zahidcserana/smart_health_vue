@@ -166,8 +166,8 @@
               </div>
             </div>
 
-            <h4>Doctor Details</h4>
-            <div class="row">
+            <h4 v-if="user.user_type == 'DOCTOR'">Doctor Details</h4>
+            <div v-if="user.user_type == 'DOCTOR'" class="row">
               <div class="col-lg-8 col-md-6">
                 <div class="row">
                   <div class="col-lg-6">
@@ -274,7 +274,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row" v-if="user.user_type == 'DOCTOR'">
+                <div class="row">
                   <div class="col-lg-12">
                     <div class="checkout__input">
                       <p v-on:click="scheduleForm" title="Appointment Schedule">
@@ -306,7 +306,6 @@ import { required } from 'vuelidate/lib/validators'
 import { getInfo, updateUser } from '@/api/user'
 import { cityList, areaList, userSettings } from '@/api/settings'
 import Avatar from '@/components/Avatar'
-// import DoctorSchedule from '@/components/DoctorSchedule'
 import Schedules from '@/components/Schedules'
 import userModel from '@/components/models/userModel'
 import userSettingsModel from '@/components/models/userSettingsModel'
@@ -367,6 +366,8 @@ export default {
         if (response.status) {
           this.fetchError = null
           this.user = response.data
+          if (this.user.doctor === null) { this.user.doctor = userModel.doctor }
+          console.log(this.user.doctor)
           this.getAreaList(this.user.city_id)
         } else {
           this.showError('Something went wrong.')

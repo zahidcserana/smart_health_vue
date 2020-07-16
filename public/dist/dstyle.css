@@ -1,0 +1,184 @@
+@font-face {
+  font-family: 'icomoonHome';
+  src:  url('fonts/icomoon.eot?lv9228');
+  src:  url('fonts/icomoon.eot?lv9228#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?lv9228') format('truetype'),
+    url('fonts/icomoon.woff?lv9228') format('woff'),
+    url('fonts/icomoon.svg?lv9228#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'icomoon-DocProfile';
+  src:  url('fonts-docProfile/icomoon.eot?pb66ve');
+  src:  url('fonts-docProfile/icomoon.eot?pb66ve#iefix') format('embedded-opentype'),
+    url('fonts-docProfile/icomoon.ttf?pb66ve') format('truetype'),
+    url('fonts-docProfile/icomoon.woff?pb66ve') format('woff'),
+    url('fonts-docProfile/icomoon.svg?pb66ve#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'coe';
+  src:  url('fonts-coe/icomoon.eot?88oftg');
+  src:  url('fonts-coe/icomoon.eot?88oftg#iefix') format('embedded-opentype'),
+    url('fonts-coe/icomoon.ttf?88oftg') format('truetype'),
+    url('fonts-coe/icomoon.woff?88oftg') format('woff'),
+    url('fonts-coe/icomoon.svg?88oftg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^="*"], [class*="*"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="home-"], [class*=" home-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoonHome' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="docProfile-"], [class*=" docProfile-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon-DocProfile' !important;
+
+}
+.home-book:before {
+  content: "\e900";
+  color: #b7274c;
+}
+.home-heart:before {
+  content: "\e901";
+  color: #b7274c;
+}
+.home-globeLat:before {
+  content: "\e902";
+  color: #034e9f;
+}
+.home-pen:before {
+  content: "\e903";
+  color: #034e9f;
+}
+.home-locPin:before {
+  content: "\e904";
+  color: #fff;
+}
+.home-ambulance:before {
+  content: "\e905";
+  color: #fff;
+}
+.home-phone:before {
+  content: "\e906";
+  color: #fff;
+}
+.docProfile-awards:before {
+  content: "\e900";
+  color: #fff;
+}
+.docProfile-handShake:before {
+  content: "\e901";
+  color: #fff;
+}
+.docProfile-lang:before {
+  content: "\e902";
+  color: #fff;
+}
+.docProfile-service:before {
+  content: "\e903";
+  color: #fff;
+}
+.docProfile-talks:before {
+  content: "\e904";
+  color: #fff;
+}
+[class^="coe-"], [class*=" coe-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'coe' !important;
+}
+.coe-accident:before {
+  content: "\e900";
+  color: #034e9f;
+}
+.coe-cancer:before {
+  content: "\e901";
+  color: #034e9f;
+}
+.coe-cardio:before {
+  content: "\e902";
+  color: #034e9f;
+}
+.coe-cardioVas:before {
+  content: "\e903";
+  color: #034e9f;
+}
+.coe-gastro:before {
+  content: "\e904";
+  color: #034e9f;
+}
+.coe-lapro:before {
+  content: "\e905";
+  color: #034e9f;
+}
+.coe-liver:before {
+  content: "\e906";
+  color: #034e9f;
+}
+.coe-kidney:before {
+  content: "\e907";
+  color: #034e9f;
+}
+.coe-brain:before {
+  content: "\e908";
+  color: #034e9f;
+}
+.coe-brainSurgery:before {
+  content: "\e909";
+  color: #034e9f;
+}
+.coe-gynae:before {
+  content: "\e90a";
+  color: #034e9f;
+}
+.coe-organ:before {
+  content: "\e90b";
+  color: #034e9f;
+}
+.coe-ortho:before {
+  content: "\e90c";
+  color: #034e9f;
+}
+.coe-child:before {
+  content: "\e90d";
+  color: #034e9f;
+}
+.coe-rheu:before {
+  content: "\e90e";
+  color: #034e9f;
+}
+.coe-spine:before {
+  content: "\e90f";
+  color: #034e9f;
+}
+.coe-uro:before {
+  content: "\e910";
+  color: #034e9f;
+}

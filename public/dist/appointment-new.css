@@ -1,0 +1,1162 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+.banner-appointment {
+    background-image: url('https://www.manipalhospitals.com/assets/images/spec/whyBg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+}
+section#careerL {
+    margin-top: 8em;
+}
+.position-rel{
+    position: relative;
+}
+.img-doc-appont p {
+    position: absolute;
+    top: 15px;
+    background-color: #024e9f;
+    left: 28px;
+    color: #fff;
+    padding: 1px 10px;
+    font-weight: 300;
+    font-size: 12px;
+}
+.img-doc-appont img{
+    height: 100%;
+}
+.doc-profile-appoint {
+    margin-top: 55px;
+    background: #fff;
+    border-radius: 15px;
+    height: 230px;
+}
+.doc-profile-appoint h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 42px;
+    text-align: left;
+    font-family: "Montserrat";
+    color: #034E9F;
+    text-transform: uppercase;
+    opacity: 1;
+    margin-top: 18px;
+}
+.doc-profile-appoint p{
+    font-size: 13px;
+    line-height: 16px;
+    text-align: left;
+    font-family: "Montserrat";
+    color: #240F39;
+    text-transform: capitalize;
+    opacity: 1;
+}
+.img-doc-appont {
+    padding-right: 15px;
+}
+.doc-profile-appoint h5 {
+    font-size: 13px;
+    font-weight: bolder;
+    line-height: 13px;
+    margin-top: 25px;
+    text-align: left;
+    font-family: "Montserrat";
+    color: #240F39;
+    text-transform: uppercase;
+    opacity: 1;
+    margin-bottom: 8px;
+}
+.img-doc-appont p{
+    color: #fff;
+}
+.padding-25{
+    padding: 25px;
+}
+.img-doc-appont img {
+    height: 230px;
+    object-position: top;
+    object-fit: cover;
+}
+.padding-top-10{
+    padding-top: 8px !important;
+}
+.doc-description-tabs{ 
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 0px 22px #02020265;
+        border-radius: 8px;
+}
+.doc-description-tabs li img {
+    position: absolute;
+    top: 18px;
+    z-index: 100;
+    left: 15px;
+}
+.doc-description-tabs .nav>li>a {
+    padding: 10px 20px !important;
+}
+.doc-description-tabs li a span{
+    text-align: left;
+    letter-spacing: 0.13px;
+    color: #434343 !important;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin-left: 27px;
+    display: block;
+    font-weight: 600;
+    line-height: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+.doc-description-tabs li a img{
+    position: relative;
+    z-index: 100;
+}
+.doc-description-tabs ul.nav.nav-pills {
+    background: #FBFBFB 0% 0% no-repeat padding-box;
+    border-radius: 8px 8px 0px 0px;
+}
+.position-rel{
+    position: relative;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: transparent;
+    background-color: transparent;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: transparent;
+    background-color: transparent;
+}
+.border-left-divider{
+    border-left: 1px solid #B4E3D7;
+}
+.doc-description-tabs>.nav-pills>li:first-child.active {  
+    background-color: #E5F6F1 !important;
+    border-bottom: 2px solid #b7384c;
+    border-top-left-radius: 10px;
+}
+.doc-description-tabs>.nav-pills>li.active a span{
+    color: #b7384c !important;
+}
+.doc-description-tabs ul {
+    margin-bottom: 0;
+    list-style-type: none;
+}
+.doc-description-tabs .tab-content {
+    padding: 25px 18px 35px 0;
+}
+
+.doc-description-tabs ul li {
+    letter-spacing: 0.17px;
+    color: #121212;
+    font-size: 12px;
+    font-weight: 300;
+}
+.padding-0{
+    padding: 0;
+}
+.img-doc-listing p{
+   background-color: #b7384c !important;
+    font-size: 10px;
+    text-align: center;
+    font-family: "Montserrat";
+    color: #FFFFFF;
+    opacity: 1;
+    line-height: 20px;
+}
+.doc-listing-appointment {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.margin-top-58{
+    margin-top: 58px;
+}
+.doc-profile-appoint{
+    box-shadow: 0px 6px 12px #00000029;
+}
+.booking-btn {
+background: #B7274C 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    padding: 6px 43px;
+    margin-top: 2px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 15px;
+}
+/* Book now section */
+.booknowSection{
+    margin-top: 55px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 22px #02020265;
+}
+.booknowSection .nav-pills .owl-stage-outer{
+    height: 60px;
+}
+.section-heading{
+background: #034E9F;
+border-radius: 4px 4px 0px 0px;
+padding:20px;
+}
+div#navbar-new .section-heading {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.heading-para{
+    padding: 0 5px;
+    font-size: 12px;
+    padding-top: 0;
+    line-height: 15px;
+    text-align: left;
+    font-family: "Montserrat";
+    letter-spacing: 0;
+    color: #FFFFFF;
+    opacity: 0.75;
+}
+.select-section{
+    display: inline-flex;
+    padding:0px 5px;
+}
+.subHeading {
+    color: white;
+    font-size: 11px;
+    padding: 0;
+    line-height: 0px;
+    margin-top: 0;
+}
+.select-dropDown{
+    color: white;
+    background: #034E9F;
+    font-size: 10px;
+    border: 0px;
+    box-shadow: none;
+    text-align: right;
+    font-family: "Montserrat";
+    opacity: 1;
+    line-height: 15px;
+}
+.section1-paragraph{
+    color: white;
+    font-size: 12px;
+    padding: 5px 5px;
+    text-align: left;
+    font-family: "Montserrat";
+    opacity: 1;
+    line-height: 25px;
+}
+.section-heading p:nth-child(3) {
+    margin-top: -24px;
+    line-height: 54px;
+}
+.section2 {
+    padding: 0px 0px;
+    margin-bottom: 0;
+    box-shadow: 0px 0px 0px #02020265;
+}
+.section2-headpara{
+font-size: 12px;
+    padding: 0px 5px;
+    font-weight: 600;
+    color: #000;
+}
+.booknowSection  a {
+    color: #000000 !important;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 900 !important;
+    text-align: center;
+    opacity: 0.6;
+    border-radius: 0px;
+    text-align: center;
+}
+.booknowSection a small{
+    color:#B7274C;
+    font-size: 61%; 
+}
+.booknowSection a:hover {
+    text-decoration: none;
+}
+.booknowSection a {
+    font-size: 12px;
+    text-align: center;
+    font-family: "Montserrat";
+}
+.booknowSection .item{
+    text-align: center;
+}
+.booknowSection a small{
+       color: #9FA5AC;
+    text-align: center;
+    font-family: "Montserrat";
+    opacity: 1;
+    font-size: 8px;
+}
+.booknowSection .nav-pills>li>a {
+    border-radius: 4px;
+    font-weight: 500 !important;
+    opacity: 0.4;
+    }
+    .booknowSection .nav-pills p{
+    line-height: 0px;
+    }
+    .booknowSection .nav-pills .owl-stage{
+        display: flex;
+    }
+    .booknowSection .nav-pills .owl-stage-outer{
+        overflow: hidden;
+        border:1px;
+    }
+    .bookNow{
+        background: #034E9F;
+    color: white;
+    font-size: 14px;
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    margin: 13px 18px 22px
+    }
+.booknowSection small{
+    line-height: 15px;
+}
+.booknowSection .owl-nav.disabled {
+    height: 10px;
+}
+div#navbar-new .section2 {
+    padding: 9px;
+}
+#navbar-new .bookNow {
+    width: 94%;
+    margin: 15px 10px 10px;
+    font-size: 14px;
+}
+.otp-appointment {
+    padding: 20px;
+    padding-top: 0;
+}
+.otp-appointment p {
+    padding-left: 0 !important;
+}
+button.owl-prev {
+    border: none;
+    background-color: transparent;
+    top: -51px;
+    position: relative;
+}
+.booknowSection button.owl-prev {
+    border: none;
+    background-color: transparent;
+    top: -55px;
+    position: relative;
+        left: -6px;
+}
+.booknowSection button.owl-next {
+    border: none;
+    background-color: transparent;
+    top: -55px;
+    right: -302px;
+    position: relative;
+}
+.booknowSection .nav-pills .owl-stage-outer {
+    overflow: hidden;
+    border: 1px;
+    width: 90%;
+    margin: auto;
+}
+.radio-button {
+    border: 1px solid #9FA5AC;
+    border-radius: 4px;
+    color: #B7274C;
+    background-color: #fff;
+    padding: 5px 15px;
+    margin-bottom: 13px;
+    margin-right: 7px;
+}
+.radio-button:hover{
+    background-color: #B7274C;
+    color: #fff;
+    border: 1px solid #B7274C;
+}
+section#careerL{
+    height: 860px;
+}
+span.backtoconfirm {
+    text-align: left;
+    display: block;
+    position: relative;
+    left: 3px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+span.backtodatetime {
+    display: block;
+    position: relative;
+    left: 6%;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-size: 12px;
+   font-family: 'Montserrat', sans-serif;
+}
+span.backtodatetime:hover , span.backtoconfirm:hover{
+    color: #b7384c;
+}
+.price_tag .select-dropDown {
+            margin-top: 0;
+    padding-top: 0;
+}
+.booknowSection a:hover {
+    color: #000 !important;
+    opacity: 1;
+}
+
+.active_class a {
+    letter-spacing: 0;
+    color: #000000 !important;
+    opacity: 1;
+    font-weight: 600 !important;
+}
+
+/* Form-Section */
+.booknowSection .formSection{
+    padding:20px 20px 0px;
+}
+.booknowSection .formSection .form-control{
+    background: #F3F3F3;
+border: 1px solid #B9C6E0;
+border-radius: 6px;
+opacity: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+.booknowSection .formSection .red{
+    text-align: left;
+    letter-spacing: 0;
+    color: #FF0000;
+    opacity: 1;
+    font-size: 12px !important;
+    line-height: 18px;
+}
+.active_class p small{
+    letter-spacing: 0;
+    color: #B7274C;
+    text-align: center;
+    font-family: "Montserrat";
+    opacity: 1;
+    font-size: 8px;
+}
+.active_class {
+    border-bottom: 2px solid #B7274C;
+}
+
+.otp-appointment h3 {
+    letter-spacing: 0.2px;
+    color: #034E9F;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+}
+.otp-appointment p {
+    letter-spacing: 0;
+    color: #000;
+    line-height: 30px;
+    padding-top: 10px;
+    font-size: 13px;
+}
+.otp-appointment input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 14px 8px 3px 7px;
+    margin: 0;
+}
+
+.otp-appointment input::placeholder{
+   color: #9FA5AC;
+
+}
+.otp-appointment p span {
+    float: right;
+    line-height: 10px;
+    margin-bottom: 26px;
+}
+.otp-appointment span{
+    letter-spacing: 0;
+    color: #034E9F;
+    font-size: 12px;
+}
+.thanks-appointment {
+    padding: 26px 13px 10px 13px;
+}
+.thanks-appointment h3{
+    letter-spacing: 0;
+    color: #034E9F;
+    font-size: 21px;
+    line-height: 26px;
+    font-weight: 600;
+    margin: 12px;
+}
+.margin-top-10{
+    margin-top: 10px;
+}
+.thanks-appointment p {
+    letter-spacing: 0.13px;
+    color: #240F39;
+    font-size: 12px;
+    line-height: 25px;
+}
+.sec-flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.sec-flex .price_tag {
+    height: 40px;
+}
+.otp-appointment input::placeholder {
+    padding-left: 0 !important;
+}
+.otp-appointment input.bookNow3 {
+    padding: 10px 8px 10px 7px;
+}
+#time_box .section1-paragraph{
+    padding-left: 0 !important;
+} 
+.apply {
+color: red;
+font-size: 12px;
+padding: 0px;
+margin: 0px;
+line-height: 10px;
+}
+.booknowSection .item {
+    cursor: pointer;
+    width: 85px;
+}
+.new_avail {
+    background: #b7274c;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+span.not_avail {
+    margin-top: 30px;
+    position: relative;
+    float: left;
+    width: 100%;
+    font-size: 18px;
+    color: #240F39;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 auto;
+    top: 30px;
+
+}
+.pre-datas {
+    line-height: 5px;
+}
+#navbar-new .owl-item.active {
+    width: 111px !important;
+    position: relative;
+    display: block;
+}
+.img-doc-appont p a {
+    background: #034E9F;
+    text-align: center;
+    font-family: "Montserrat";
+    color: #FFFFFF;
+    opacity: 1;
+    font-size: 10px;
+    line-height: 12px;
+}
+p.pic_box {
+    padding-top: 3px;
+}
+span#appoinmentError {
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    line-height: 19px;
+    margin-top: -15px;
+    margin-bottom: -10px;
+}
+img.img-responsive.img_profile {
+    margin-left: 12px;
+}
+.doc-description-tabs ul li{
+        margin-left: 0 !important;
+}
+.docListCont .doc-profile-appoint h3{
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: left;
+    font-family: "Montserrat";
+    color: #034E9F;
+    text-transform: uppercase;
+    opacity: 1;
+    letter-spacing: 0.23px;
+    line-height: 1.2;
+    height: auto;
+    min-height: 45px;
+}
+p.left_texty {
+    min-height: 45px;
+    height: auto;
+}
+.docListCont .doc-profile-appoint h5 {
+    margin-top: 10px;
+}
+.docListCont .doc-profile-appoint p {
+    line-height: 20px !important;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: capitalize !important;
+    opacity: 1;
+}
+.docListCont input,.docListCont select{
+      font-family: 'Montserrat', sans-serif;
+}
+.formSection p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #121212;
+}
+.otp-appointment input.bookNow3 {
+padding: 10px 8px 10px 7px;
+/*cursor: no-drop;*/
+}
+.bookNow2{
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+.cursur-auto{
+    cursor: auto;
+}
+#time_box .section1-paragraph {
+padding-left: 0 !important;
+}
+#time_box2 .section1-paragraph {
+padding-left: 0 !important;
+}
+.docListCont .nav-pills .owl-item.active {
+    text-align: center;
+}
+.address-card{
+        display: flex;
+    line-height: 15px;
+}
+.talks_margin{
+    margin-left: 0 !important;
+}
+p.pic_box {
+     min-height: 23px;
+    padding-top: 3px;
+    width: 178px;
+    padding-bottom: 2px;
+}
+div#talks-publication li {
+    display: block;
+}
+div#talks-publication li a {
+    font-size: 12px;
+    margin-left: 9px;
+    color: #a93447;
+}
+input#otp_got::placeholder{
+   color: #9FA5AC;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 12px;
+}
+.dropdown.drop-left {
+   float: left;
+    width: 38%;
+    margin-right: -10px;
+}
+
+/*media starts here*/
+@media screen and (max-width: 1200px) {
+    .booknowSection button.owl-next {
+        right: -244px;
+    }
+    .doc-description-tabs .nav li a {
+        padding: 6px;
+        font-size: 10px;
+        font-weight: 300;
+    }
+    .doc-description-tabs li img {
+        top: 15px;
+        left: 5px;
+    }
+}
+/* book */
+@media screen and (max-width: 769px) {
+        .searchBtn >input.btn.booking-btn {
+    width: 100%;
+    margin-left: 5px;
+    margin-bottom: 0px;
+}
+form.form2>input.btn.booking-btn {
+    width: 100%;
+}
+    p.desgn {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.doc-profile-appoint {
+    margin-top: 55px;
+    background: #fff;
+    border-radius: 15px;
+}
+.dropdown {
+    padding: 10px;
+}
+    .doc-listing-appointment {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    .doc-listing-booking .owl-carousel p small{
+        font-size: 8px;
+    }
+    .step-1-booking{
+            left: -22px;
+    }
+    .doc-listing-appointment .col-xs-12.col-sm-12.col-md-12.col-lg-12 {
+           padding-left: 15px !important;
+    }
+
+    .doc-listing-booking span.backtodatetime {
+        left: 20px !important;
+    }
+    section#careerL {
+        min-height: 1568px;
+    }
+    .booknowSection button.owl-next {
+        right: -665px;
+    }
+    .doc-description-tabs .nav li a {
+        padding: 10px 15px;
+    }
+    .doc-description-tabs li img {
+        top: 18px;
+        left: 10px;
+    }
+    .width-booking-form h4{
+        margin-left: 14px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .doc-listing-appointment .radio-btn ul li{
+        width: 33% !important;
+    }
+    .pl-15{
+            padding-left: 15px !important;
+    }
+    .img-doc-appont img{
+          border-radius: 15px 15px 0 0px;
+    }
+    .radio-select {
+        width: 25%;
+    }
+    hr.hr_line {
+        width: 99% !important;
+        margin-left: 0px;
+    }
+    .doc-listing-appointment {
+        margin-top: 18px !important;
+    }
+    span.bookNow.bookNow1.button-booking-listing.confirm-application{
+            margin-top: 30px;
+    }
+    .otp-appointment input{
+           font-size: 12px !important;
+    }
+    .doc-listing-appointment .select-time .owl-item.active .item{
+                width: auto !important;
+    }
+    .doc-listing-appointment .doc-listing-booking .nav-pills .owl-item.active {
+            margin-right: 9px !important;
+            margin-left: 9px;
+     }
+    .doc-description-tabs li a{
+        padding: 0;
+        text-align: left;
+    }
+    .doc-listing-appointment .radio-btn ul li label {
+        font-size: 12px !important;
+    }
+    .doc-listing-appointment select{
+        font-size: 12px;
+    }
+    .width-booking-form{
+        margin-top: 0px;
+    }
+    .doc-listing-booking .section2-headpara {
+    font-size: 12px;
+    margin: 0;
+    padding: 0px;
+    height: 50px;
+}
+span.not_avail {
+    margin-top: 30px;
+    position: relative;
+    float: left;
+    width: 100%;
+    font-size: 14px;
+    color: #240F39;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 auto;
+    top: 30px;
+}
+    .doc-listing-booking .display-flex .select-dropDown{
+        font-size: 12px;
+        margin-top: 0px;
+    }
+    .doc-listing-booking .radio-inline {
+        font-size: 14px;
+    }
+    .doc-listing-booking .margin-top-15.doctor-list-layout {
+        margin-top: 0;
+    }
+    .doc-listing-booking .thanks-appointment h3 {
+        font-size: 14px !important;
+        line-height: 20px !important;
+    }
+    .doc-listing-booking .thanks-appointment p{
+        font-size: 13px;
+    }
+    .doc-listing-booking .otp-appointment span{
+        left: 200px;
+        top: 48px;
+        display: inline;
+    }
+    .doc-listing-booking .otp-application{
+        margin: 0;
+        margin-top: 55px !important;
+    }
+    .doc-listing-booking .otp-appointment h3 {
+        font-size: 18px !important;
+        margin-bottom: 7px;
+    }
+    .doc-listing-booking span.backtodatetime {
+            display: inline;
+    left: 3px !important;
+    top: -3px;
+    }
+    .doc-listing-booking div.select-time .owl-carousel{
+        width: 100%;
+    }
+    .doc-listing-booking .confirm-application {
+        margin: 0;
+            margin-top: 0;
+    }
+    .doc-listing-booking .form-group span {
+        font-size: 12px;
+    }
+    .doc-listing-booking .nav-pills .owl-item.active {
+        margin-right: 10px !important;
+    }
+    .doc-listing-booking input::placeholder{
+        font-size: 12px;
+     }
+     .doc-listing-booking .red {
+        color: #FF0000 !important;
+        font-size: 10px !important;
+     }
+    .doc-listing-booking .width-booking-form h4 {
+        font-size: 14px;
+    }
+    .doc-listing-booking .radio-btn-doc-listing{
+        height: 160px !important;
+        overflow-x: auto;
+            margin-top: 0;
+    }
+    .doc-listing-booking .step-1-booking {
+        margin: 0;
+    }
+    .doc-listing-booking .select-time a {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .doc-listing-booking .owl-carousel .owl-nav button.owl-next {
+        right: -8px !important;
+    }
+    .doc-listing-booking .owl-carousel .owl-nav button.owl-prev {
+        left: 0;
+    }
+    span.backtodatetime {
+    top: -22px;
+    }
+    .doc-description-tabs li.position-rel {
+            width: 19%;
+            height: 37px;
+        }
+     .doc-description-tabs>.nav-pills>li .black-color-icon-mob {
+    position: relative !important;
+    z-index: 100;
+    top: -2px;
+    left: 10px !important;
+}
+.img-doc-appont {
+    padding-right: initial !important;
+}
+img.img-responsive.img_profile {
+    margin-left: 0 !important;
+    border-radius: 0;
+}
+.doc-profile-appoint h1 {
+    font-size: 14px;
+}
+.doc-description-tabs .tab-content .tab-pane.active {
+    height: 140px;
+}
+    .doc-description-tabs li a img {
+        position: relative;
+        z-index: 100;
+        top: 0;
+    }
+    .p-0{
+        padding: 0;
+    }
+    .doc-listing-appointment {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .black-color-icon-mob {
+            position: relative !important;
+            z-index: 100;
+            top: -6px !important;
+            left: 10px !important;
+        }
+   .doc-description-tabs>.nav-pills>li.active .pink-color-icon {
+    position: relative !important;
+    z-index: 100;
+    top: -31px;
+    left: 6px !important;
+    }
+
+    .doc-profile-appoint{
+        min-height: 230px;
+        height: auto;
+    }
+    .banner-appointment {
+        min-height: 1200px;
+    }
+    .booking-btn {
+    width: 92%;
+    margin: auto;
+    margin-left: 0px;
+    margin-bottom: 12px;
+    }
+    form.form2 > input.btn.booking-btn {
+    width: 100%;
+    margin-left: 0px;
+}
+    section#careerL {
+        height: auto;
+    }
+    .doc-description-tabs {
+    position: relative;
+        top: 64px;
+    }
+    .booknowSection button.owl-next {
+    right: -300px;
+    }
+    #docList .booking-btn{
+        margin-left: 10px !important;
+        margin-top: 10px !important;
+    }
+}
+
+@media screen and (max-width: 400px) { 
+.booknowSection button.owl-next {
+    right: -267px;
+}
+}
+@media screen and (max-width: 321px) { 
+.booknowSection button.owl-next {
+    right: -211px;
+    top: -59px;
+}
+}
+
+/*added by santu*/
+span.resend-otp {
+    top: 0px;
+    left: 0em;
+    position: relative;
+    float: left;
+    width: 25%;
+}
+select.form-control.select-dropDown-list {
+    box-shadow: none;
+    text-align: right;
+    opacity: 1;
+    line-height: 3px;
+    cursor: pointer;
+    width: 90%;
+    background: #B7274C 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    padding: 0px 9px;
+    margin-top: 9px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    height: 32px;
+}
+p.pic_box_text>a {
+    float: right;
+    color: white !important;
+    z-index: 10;
+    opacity: 1;
+    font-weight: 100 !important;
+    margin-top: 5px !important;
+}
+
+form.form1 {
+    width: 90%;
+    float: left;
+}
+form.form2 {
+    width: 12%;
+    margin-left: -6em;
+    float: left;
+    margin-top: 0px;
+    height: 58px;
+}
+button.btn_back {
+    background: #034e9f;
+    color: #fff;
+    font-size: 14px;
+    width: 25%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
+    font-weight: 400;
+    position: absolute;
+    top: 1px;
+    right: 27px;
+}
+
+@media screen and (max-width: 769px) {
+    select.form-control.select-dropDown-list {
+    box-shadow: none;
+    text-align: center;
+    opacity: 1;
+    line-height: 3px;
+    cursor: pointer;
+    width: 100%;
+    background: #B7274C 0% 0% no-repeat padding-box;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    padding: 0px 10px;
+    margin-top: 10px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    height: 32px;
+}
+.dropdown.drop-left {
+    float: left;
+    width: 100%;
+    margin-right: -10px;
+    text-align: center;
+}
+#pageBanner .bannerForm form {
+    background-color: #fff;
+    border-radius: 0;
+    padding: 10px;
+    margin-bottom: 0px;
+}
+.docListCont .doc-profile-appoint h3 {
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: left;
+    font-family: "Montserrat";
+    color: #034E9F;
+    text-transform: uppercase;
+    opacity: 1;
+    letter-spacing: 0.23px;
+    line-height: 1.2;
+    height: auto;
+    min-height: 10px;
+}
+
+form.form1 {
+    width: 100%;
+    float: left;
+}
+form.form2 {
+    width: 100%;
+    margin-left: 0px;
+    float: left;
+    margin-top: -12px;
+    height: 54px;
+}
+.pagination {
+    margin-left: 0.5em;
+}
+}
+p.desgn {
+    float: left;
+    width: 100%;
+}
+@media screen and (max-width: 500px){
+    .doc-listing-booking div.select-time .owl-carousel {
+    width: 100%;
+    }
+    .doc-profile-appoint .padding-25{
+    position : relative;
+    }
+    button.btn_back {
+    background: #034e9f;
+    color: #fff;
+    font-size: 12px;
+    width: 25%;
+    text-align: center;
+    padding: 3px;
+    border-radius: 5px;
+    border: 0;
+    font-weight: 400;
+    float: right;
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    }
+    div#quali_box p {
+    height: 98px;}
+
+    p.doc_disign {
+    width: 100%;
+    position: relative;
+    -webkit-line-clamp: 3;
+    line-height: 1.4;
+    font-size: 12px;
+    min-height: 95px;
+    margin-bottom: -40px;
+    top: -5px;
+    }
+
+    .doc-profile-appoint h1{
+    margin-left:0px;
+    }
+
+}

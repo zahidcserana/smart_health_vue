@@ -24,7 +24,7 @@
                 </select>
               </td>
               <td>
-                <switches v-model="schedule.isOpen" theme="bulma" color="blue" type-bold="true"></switches>
+                <switches style="text-align: center" v-model="schedule.isOpen" theme="bulma" color="blue" type-bold="true"></switches>
               </td>
               <td>
                 <select name="hourStart" class="form-control" v-model="schedule.startTime">
@@ -94,6 +94,35 @@
           </span>
       </p>
     </div>
+
+    <div class="shoping__cart__table" v-if="viewSlot">
+      <table v-if="slots" class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Day</th>
+          <th>Appointment Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(item,key) in slots" :key="key">
+          <td class="shoping__cart__price" style="padding-top: 4%;">
+            <span class="btn btn-info">{{ key }}</span>
+          </td>
+          <td class="shoping__cart__price">
+            <table>
+              <tr v-for="(row,i) in item" :key="i">
+                <td>
+                  <span style="background: cadetblue; color: aliceblue;" class="btn primary-btn">
+                    <i class="fa fa-clock-o"></i> {{ row.start_time | moment }}
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -102,6 +131,7 @@ import { Schedule } from './models/DoctorScheduleModel'
 import Switches from 'vue-switches'
 import { saveSchedule, scheduleList, updateSchedule, doctorSlot } from '../api/doctor'
 import { weekdays, HoursGroup } from '../assets/utils/common'
+import moment from 'moment'
 
 export default {
   name: 'schedules',
@@ -112,6 +142,7 @@ export default {
   },
   data () {
     return {
+      viewSlot: false,
       schedules: null,
       slots: null,
       enabled: false,
@@ -140,20 +171,23 @@ export default {
   },
   methods: {
     getDoctorSlot () {
-      doctorSlot(this.user.id).then(res => {
-        if (res.status) {
-          this.slots = res.data
-        } else {
-          this.$swal({
-            position: 'center',
-            icon: 'error',
-            title: 'Oops...',
-            text: res.message,
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }
-      })
+      this.viewSlot = !this.viewSlot
+      if (this.viewSlot) {
+        doctorSlot(this.user.id).then(res => {
+          if (res.status) {
+            this.slots = res.data
+          } else {
+            this.$swal({
+              position: 'center',
+              icon: 'error',
+              title: 'Oops...',
+              text: res.message,
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        })
+      }
     },
     reset () {
       this.schedule.day = ''
@@ -265,6 +299,10 @@ export default {
     Switches
   },
   filters: {
+    moment: function (time) {
+      const date = new Date().toISOString().substr(0, 10)
+      return moment(date.concat(' ', time)).format('h:mm a')
+    },
     statusFilter (status) {
       const statusMap = {
         1: 'btn-success',
@@ -280,10 +318,9 @@ export default {
 </script>
 
 <style>
-  .is-open {
-    width: 46px;
-    background-color: #34bfa3;
-    border-color: #34bfa3;
-    color: #fff;
+  .shoping__cart__table table tbody tr td {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #ebebeb;
   }
 </style>

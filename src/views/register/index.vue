@@ -1,6 +1,7 @@
 <template>
   <div class="login-page">
     <div class="form">
+      <div class="alert-msg" v-if="fetchError"> {{ fetchError }}</div>
       <form @submit.prevent="submitForm" class="m-login__form m-form">
         <input
           class="form-control"
@@ -39,11 +40,11 @@
         />
         <input
           class="form-control m-input m-login__form-input--last"
-          :class="{ 'form-group--error': $v.login.c_password.$error }"
+          :class="{ 'form-group--error': $v.login.password_confirmation.$error }"
           type="password"
-          v-model.trim="$v.login.c_password.$model"
+          v-model.trim="$v.login.password_confirmation.$model"
           placeholder="Confirm Password"
-          name="c_password"
+          name="password_confirmation"
         />
         <button>Sign Up</button>
         <p class="message">Already registered?
@@ -73,7 +74,7 @@ export default {
         email: 'zahid@admin.com',
         mobile: '',
         password: '12345678',
-        c_password: '12345678'
+        password_confirmation: '12345678'
       },
       fetchError: null
     }
@@ -92,7 +93,7 @@ export default {
       password: {
         required
       },
-      c_password: {
+      password_confirmation: {
         required
       }
     }
@@ -140,7 +141,7 @@ export default {
                 this.$router.push('/')
                 location.reload()
               } else {
-                this.showError('Wrong user or password')
+                this.showError('Error: ' + result.message)
               }
             })
             .catch(error => {
