@@ -7,7 +7,9 @@ import VueSweetalert2 from 'vue-sweetalert2'
 import Switches from 'vue-switches'
 import moment from 'moment'
 import VModal from 'vue-js-modal'
+import SingleDatePicker from 'vue-single-date-picker'
 
+Vue.use(SingleDatePicker)
 Vue.use(VModal)
 Vue.use(moment)
 Vue.use(require('vue-moment'))

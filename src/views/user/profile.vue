@@ -23,7 +23,6 @@
       <div class="container">
         <div class="checkout__form">
           <h4>User Details</h4>
-          <div class="alert-msg" v-if="fetchError"> {{ fetchError }}</div>
           <form @submit.prevent="submitForm" class="m-login__form m-form">
             <div class="row">
               <div class="col-lg-8 col-md-6">
@@ -323,7 +322,6 @@ export default {
       submitStatus: null,
       user: userModel,
       userSettings: userSettingsModel,
-      fetchError: null,
       cities: null,
       areas: null
     }
@@ -364,7 +362,6 @@ export default {
     getUserInfo () {
       getInfo().then(response => {
         if (response.status) {
-          this.fetchError = null
           this.user = response.data
           if (this.user.doctor === null) { this.user.doctor = userModel.doctor }
           console.log(this.user.doctor)
@@ -380,7 +377,6 @@ export default {
     getUserSettings () {
       userSettings().then(response => {
         if (response.status) {
-          this.fetchError = null
           this.userSettings = response.data
         } else {
           this.showError('Something went wrong.')
@@ -410,7 +406,6 @@ export default {
         this.loading = true
         updateUser(this.user).then(response => {
           if (response.status) {
-            this.fetchError = null
             this.user = response.data
             this.$swal({
               position: 'center',
@@ -452,9 +447,6 @@ export default {
           timer: 1500
         })
       }
-    },
-    showError (msg) {
-      this.fetchError = msg
     }
   }
 }

@@ -171,7 +171,7 @@
         </div>
       </div>
     </div>
-    <modal  params="zahid" name="my-first-modal">
+    <modal height="550px" params="zahid" name="my-first-modal">
       <serial :zahid="zahid" />
     </modal>
   </section>

@@ -1,6 +1,7 @@
 <template>
   <div class="login-page">
     <div class="form">
+      <div class="alert-msg" v-if="fetchError"> {{ fetchError }}</div>
       <form @submit.prevent="submitForm" class="m-login__form m-form">
         <input
           class="form-control"
@@ -19,12 +20,16 @@
           placeholder="Password"
           name="password"
         />
-        <button>login</button>
-        <p class="message">Not registered?
+        <Stretch v-if="loading" />
+        <button v-if="!loading">login</button>
+        <p class="message">
+          Not registered?
           <router-link to="/register">Create an account</router-link>
         </p>
         <p class="btn-link">
-          <router-link class="primary-btn" to="/login/mobile">Mobile Login</router-link>
+          <router-link class="primary-btn" to="/login/mobile"
+            >Mobile Login</router-link
+          >
         </p>
       </form>
     </div>
@@ -37,6 +42,7 @@ import { env } from '@/utils/auth'
 // import { getInfo } from '@/api/user'
 import { required } from 'vuelidate/lib/validators'
 // import buttonLoader from '@/components/-ButtonLoader.vue'
+import { Stretch } from 'vue-loading-spinner'
 
 export default {
   name: 'login-form',
@@ -75,7 +81,6 @@ export default {
         file.href = 'css/auth.css'
         document.head.appendChild(file)
       }
-      this.loading = false
     },
     submitForm () {
       this.$v.$touch()
@@ -88,12 +93,17 @@ export default {
             .then(response => {
               const result = response.data
               if (result.status) {
+                this.loading = false
                 this.fetchError = null
                 localStorage.setItem('token', result.data.token)
-                localStorage.setItem('userInfo', JSON.stringify(result.data.user))
+                localStorage.setItem(
+                  'userInfo',
+                  JSON.stringify(result.data.user)
+                )
                 // this.$router.push('/')
                 location.reload()
               } else {
+                this.loading = false
                 this.showError('Wrong user or password')
               }
             })
@@ -114,6 +124,7 @@ export default {
   },
   components: {
     // buttonLoader
+    Stretch
   }
 }
 </script>

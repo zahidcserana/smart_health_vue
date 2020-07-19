@@ -1,14 +1,18 @@
 <template>
   <div class="login-page">
-    <div class="form redirect"  v-if="redirect">
-      <p class="goto-site"> Login Successful
+    <div class="form redirect" v-if="redirect">
+      <p class="goto-site">
+        Login Successful
         <a href="/"> Go to Home</a>
       </p>
     </div>
 
     <div class="form" v-else>
-      <div class="alert-msg" v-if="fetchError"> {{ fetchError }}</div>
-      <p class="my-req">OTP has been sent to: <b>{{ login.mobile }}</b> Please enter your OTP to login </p>
+      <div class="alert-msg" v-if="fetchError">{{ fetchError }}</div>
+      <p class="my-req">
+        OTP has been sent to: <b>{{ login.mobile }}</b> Please enter your OTP to
+        login
+      </p>
 
       <form @submit.prevent="submitForm" class="m-login__form m-form">
         <input
@@ -19,8 +23,10 @@
           placeholder="Enter OTP"
           name="mobile_otp"
         />
-        <button>Submit</button>
-        <p class="message">Not registered?
+        <Stretch v-if="loading" />
+        <button v-if="!loading">Submit</button>
+        <p class="message">
+          Not registered?
           <router-link to="/login">Email Login</router-link>
         </p>
       </form>
@@ -36,6 +42,7 @@ import { env } from '@/utils/auth'
 import { required } from 'vuelidate/lib/validators'
 // import buttonLoader from '@/components/-ButtonLoader.vue'
 import '../../../public/css/auth.css'
+import { Stretch } from 'vue-loading-spinner'
 
 export default {
   name: 'login-form',
@@ -82,7 +89,10 @@ export default {
               if (result.status) {
                 this.fetchError = null
                 localStorage.setItem('token', result.data.token)
-                localStorage.setItem('userInfo', JSON.stringify(result.data.user))
+                localStorage.setItem(
+                  'userInfo',
+                  JSON.stringify(result.data.user)
+                )
                 this.redirect = true
 
                 $('.my-req').hide()
@@ -109,6 +119,7 @@ export default {
   },
   components: {
     // buttonLoader
+    Stretch
   }
 }
 </script>
