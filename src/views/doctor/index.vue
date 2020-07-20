@@ -292,7 +292,7 @@ a {
 
 <style>
 div.appointment-open {
-  position: absolute;
+  position: relative;
   width: 100%;
   margin-top: 0;
   padding: 0 10px;

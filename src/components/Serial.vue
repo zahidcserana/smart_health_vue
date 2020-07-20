@@ -20,7 +20,7 @@
                 <p></p>
               </div>
             </div>
-            <SingleDatePicker style="margin-left: 21%;" />
+            <SingleDatePicker style="margin-left: 21%;" v-model="apt_date" @selectDate="getDate" />
 
             <div
               class="radio-btn radio-btn-doc-listing text-center"
@@ -418,6 +418,16 @@ export default {
   },
   props: {
     zahid: String
+  },
+  data () {
+    return {
+      apt_date: null
+    }
+  },
+  methods: {
+    getDate (date) {
+      console.log(date)
+    }
   }
 }
 </script>
