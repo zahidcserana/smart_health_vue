@@ -23,6 +23,13 @@ export function updateSchedule (data) {
     data
   })
 }
+export function requestSchedule (data) {
+  return request({
+    url: `${env.api_url}/doctor-schedule/request`,
+    method: 'post',
+    data
+  })
+}
 
 export function scheduleList (doctorId) {
   return request({

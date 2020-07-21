@@ -173,7 +173,7 @@ export default {
     getDoctorSlot () {
       this.viewSlot = !this.viewSlot
       if (this.viewSlot) {
-        doctorSlot(this.user.id).then(res => {
+        doctorSlot(this.user.doctor.id).then(res => {
           if (res.status) {
             this.slots = res.data
           } else {
@@ -237,7 +237,7 @@ export default {
       })
     },
     getScheduleList () {
-      scheduleList(this.user.id).then(res => {
+      scheduleList(this.user.doctor.id).then(res => {
         if (res.status) {
           this.schedules = res.data
         } else {

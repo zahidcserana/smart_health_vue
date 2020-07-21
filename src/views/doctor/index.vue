@@ -5,18 +5,9 @@
         <div class="docListCont col-md-12 cl-sm-12 col-xs-12 no-padding">
           <!-- <div class="doc-profile-appoint doc-listing-appointment height-auto"> -->
           <div class="row">
-            <input
-              type="hidden"
-              name="selected_date"
-              id="selected_date"
-              value="15072020"
-            />
             <!-- <div id="result"></div> -->
-            <div id="result">
-              <div
-                class="doc-profile-appoint doc-listing-appointment"
-                id="doc-profile-appoint71"
-              >
+            <div id="result" v-if="doctors">
+              <div v-for="(item,index) in doctors" :key="index" class="doc-profile-appoint doc-listing-appointment" id="doc-profile-appoint71">
                 <div class="main-box">
                   <div class="row">
                     <div class="col-4  p-0">
@@ -24,12 +15,7 @@
                         <a
                           href="https://www.manipalhospitals.com/oldairportroad/doctors/dr-col-r-d-holla-senior-consultant-internal-medicine"
                         >
-                          <img
-                            src="https://www.hospitalmanagement.net/wp-content/uploads/sites/13/2018/11/hospital.jpg"
-                            alt=""
-                            title=""
-                            class="img-responsive"
-                          />
+                          <img :src="item.user.picture" alt="" title="" class="img-responsive" >
                         </a>
                         <p class="pic_box">
                           Smart Health Ltd.
@@ -44,13 +30,13 @@
                           id="view_profile71"
                           href="https://www.manipalhospitals.com/oldairportroad/doctors/dr-col-r-d-holla-senior-consultant-internal-medicine"
                         >
-                          <h3>item.user.name</h3>
+                          <h3>{{ item.user.name }}</h3>
                         </a>
                       </div>
-                      <p class="desgn">item.speciality.title</p>
+                      <p class="desgn">{{ item.speciality.title }}</p>
                       <h5 class="left_texty">QUALIFICATION</h5>
                       <p class="left_texty">
-                        <span> item.qualification_details </span>
+                        <span> {{ item.qualification_details }} </span>
                       </p>
                     </div>
                     <div
@@ -59,7 +45,7 @@
                     >
                       <button
                         class="booking-btn booking-disabled71"
-                        @click="show"
+                        @click="show(item)"
                       >
                         Book Appointment
                       </button>
@@ -72,98 +58,6 @@
                       </a>
                     </div>
                   </div>
-
-                  <input
-                    type="hidden"
-                    name="selected_date"
-                    id="selected_date71"
-                    value="16072020"
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_code"
-                    id="doctor_code71"
-                    value="MHBINTD4"
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_id"
-                    id="doctor_ids"
-                    value="71"
-                  />
-                  <input
-                    type="hidden"
-                    name="dept_code"
-                    id="dept_code71"
-                    value="MHBDINT"
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_price"
-                    id="doctor_price71"
-                    value=""
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_duration"
-                    id="doctor_duration71"
-                    value=""
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_loc_code"
-                    id="doctor_loc_code71"
-                    value="MHB"
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_address"
-                    id="doctor_address71"
-                    value="Dr. (COL) R D Holla"
-                  />
-
-                  <input
-                    type="hidden"
-                    name="selected_date"
-                    id="selected_date"
-                    value="16072020"
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_code"
-                    id="doctor_code"
-                    value="MHBINTD4"
-                  />
-                  <input
-                    type="hidden"
-                    name="dept_code"
-                    id="dept_code"
-                    value="MHBDINT"
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_price"
-                    id="doctor_price"
-                    value=""
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_duration"
-                    id="doctor_duration"
-                    value=""
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_loc_code"
-                    id="doctor_loc_code"
-                    value=""
-                  />
-                  <input
-                    type="hidden"
-                    name="doctor_address"
-                    id="doctor_address"
-                    value="Dr. (COL) R D Holla"
-                  />
                 </div>
               </div>
             </div>
@@ -172,17 +66,17 @@
       </div>
     </div>
     <modal height="550px" params="zahid" name="my-first-modal">
-      <serial :zahid="zahid" />
+      <serial :slots="slots" />
     </modal>
   </section>
 </template>
 
 <script>
-import '../../../public/dist/dstyle.css'
-import '../../../public/dist/slick.css'
-import '../../../public/dist/slick-theme.css'
-import '../../../public/dist/magnific-popup.css'
-import '../../../public/dist/style.css'
+// import '../../../public/dist/dstyle.css'
+// import '../../../public/dist/slick.css'
+// import '../../../public/dist/slick-theme.css'
+// import '../../../public/dist/style.css'
+// import '../../../public/dist/magnific-popup.css'
 import '../../../public/dist/appointment-new.css'
 import '../../../public/dist/doctors.css'
 
@@ -201,17 +95,18 @@ export default {
     return {
       fetchError: null,
       doctors: null,
-      zahid: 'Hi Zahid'
+      slots: null
     }
   },
   created () {
-    // this.getDoctorList()
+    this.getDoctorList()
   },
   mounted () {
     // this.show()
   },
   methods: {
-    show () {
+    show (item) {
+      this.slots = item.slots
       this.$modal.show('my-first-modal')
     },
     hide () {
