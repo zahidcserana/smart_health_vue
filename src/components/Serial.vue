@@ -29,20 +29,22 @@
               <ul v-if="morning">
                 <p class="days_style" id="days_style">Morning</p>
                 <li v-for="(item,index) in morning" :key="index">
-                  <input
-                    type="radio"
-                    v-model="requestData.time"
-                  /><label :class="'schedule_'+index" @click="checkSchedule(index, item)" for="f-option1"> {{ item }} </label>
+                  <input type="radio" v-model="requestData.slot_time"/>
+                  <label :class="['schedule_'+index, {'check-schedule': item.isBooked}]"
+                         @click="checkSchedule(index, item.time)">
+                    {{ item.time }}
+                  </label>
                   <div class="check"></div>
                 </li>
               </ul>
               <ul v-if="afternoon">
                 <p class="days_style" id="days_style">Afternoon</p>
                 <li v-for="(item,index) in afternoon" :key="index">
-                  <input
-                    type="radio"
-                    v-model="requestData.time"
-                  /><label :class="'schedule_'+index" @click="checkSchedule(index, item)" for="f-option1"> {{ item }} </label>
+                  <input type="radio" v-model="requestData.slot_time"/>
+                  <label :class="['schedule_'+index, {'check-schedule': item.isBooked}]"
+                         @click="checkSchedule(index, item.time)">
+                    {{ item.time }}
+                  </label>
                   <div class="check"></div>
                 </li>
               </ul>
@@ -53,7 +55,7 @@
               id="bookNow_date66"
               class="bookNow bookNow1 button-booking-listing step-1-booking"
               style="display: block;"
-              @click="bookingDate"
+              @click="submitForm"
               type="button"
             >
               Book Now
@@ -89,6 +91,7 @@ import SingleDatePicker from 'vue-single-date-picker'
 import moment from 'moment'
 import { requestSchedule } from '@/api/doctor'
 import $ from 'jquery'
+import { currentDate, momentTime, myDate } from '@/utils'
 
 export default {
   name: 'Serial',
@@ -96,7 +99,8 @@ export default {
     SingleDatePicker
   },
   props: {
-    slots: Array
+    slots: Array,
+    doctor: Object
   },
   filters: {
     moment: function (time) {
@@ -106,14 +110,17 @@ export default {
   },
   data () {
     return {
-      myDays: null,
+      mySlots: null,
       apt_date: null,
+      booked: null,
       morning: null,
       afternoon: null,
       schedule_index: null,
       requestData: {
+        doctor_id: undefined,
         day: '',
-        time: ''
+        slot_time: '',
+        appoint_date: ''
       }
     }
   },
@@ -122,46 +129,108 @@ export default {
       $('.' + this.schedule_index).removeClass('check-schedule')
       $('.schedule_' + label).addClass('check-schedule')
       this.schedule_index = 'schedule_' + label
-      this.requestData.time = item
+      this.requestData.slot_time = item
+      this.requestData.doctor_id = this.doctor.id
     },
     getDate (date) {
-      const myDate = date.year + '-' + (date.month + 1) + '-' + date.date
-      var dt = moment(myDate, 'YYYY-MM-DD HH:mm:ss')
+      const getDate = myDate(date.year + '-' + (date.month + 1) + '-' + date.date + ' 10:00:00')
+      this.requestData.appoint_date = getDate
+      const dt = moment(getDate, 'YYYY-MM-DD HH:mm:ss')
       const d = dt.format('d')
 
-      this.myDays = this.slots.filter(row => parseInt(row.day) === parseInt(d))
+      this.mySlots = this.slots.filter(row => parseInt(row.day) === parseInt(d))
+      const myBooked = []
+      if (this.doctor.appointments.length > 0) {
+        this.doctor.appointments.map(row => {
+          if (row.appoint_date === getDate) {
+            myBooked.push(row.slot_time)
+          }
+        })
+      }
+      this.booked = myBooked
       this.requestData.day = d
       this.getSlot()
-    },
-    makeTime (time) {
-      const date = new Date().toISOString().substr(0, 10)
-      return moment(date.concat(' ', time)).format('h:mm a')
     },
     getSlot () {
       const pmList = []
       const amList = []
-      this.myDays.map(function (row) {
-        const date = new Date().toISOString().substr(0, 10)
-        const time = moment(date.concat(' ', row.start_time)).format('h:mm a')
+      this.mySlots.map(function (row) {
+        const date = currentDate()
+        const time = momentTime(date.concat(' ', row.start_time))
 
         const timeArr = time.split(' ')
         if (timeArr[1] === 'am') {
-          amList.push(time)
+          amList.push({
+            isBooked: false,
+            time: time
+          })
         } else {
-          pmList.push(time)
+          pmList.push({
+            isBooked: false,
+            time: time
+          })
         }
       })
       this.afternoon = pmList.length > 0 ? pmList : null
       this.morning = amList.length > 0 ? amList : null
+
+      if (this.booked.length > 0) {
+        this.checkBooked()
+      }
     },
     checkValidation () {
+      if (this.requestData.slot_time === '') {
+        return false
+      }
       return true
     },
-    bookingDate () {
+    checkBooked () {
+      this.mapMorning()
+      this.mapAfternoon()
+    },
+    mapMorning () {
+      const myTime = []
+      this.morning.map(item => {
+        if (this.booked.includes(item.time)) {
+          myTime.push({
+            isBooked: true,
+            time: item.time
+          })
+        } else {
+          myTime.push({
+            isBooked: false,
+            time: item.time
+          })
+        }
+      })
+      this.morning = myTime
+    },
+    mapAfternoon () {
+      const myTime = []
+      this.afternoon.map(item => {
+        if (this.booked.includes(item.time)) {
+          myTime.push({
+            isBooked: true,
+            time: item.time
+          })
+        } else {
+          myTime.push({
+            isBooked: false,
+            time: item.time
+          })
+        }
+      })
+      this.afternoon = myTime
+      console.log(this.afternoon)
+    },
+    submitForm () {
       if (this.checkValidation()) {
         this.loading = true
         requestSchedule(this.requestData).then(response => {
           if (response.status) {
+            this.booked = response.data.booked
+            console.log(this.booked)
+            this.checkBooked()
             this.$swal({
               position: 'center',
               icon: 'success',
@@ -175,7 +244,7 @@ export default {
               position: 'center',
               icon: 'error',
               title: 'Oops...',
-              text: 'Something went wrong',
+              text: response.message,
               showConfirmButton: false,
               timer: 1500
             })
@@ -192,7 +261,6 @@ export default {
           })
         })
       } else {
-        console.log(this.$v)
         this.$swal({
           position: 'center',
           icon: 'error',

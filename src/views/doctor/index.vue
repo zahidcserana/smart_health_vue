@@ -66,7 +66,7 @@
       </div>
     </div>
     <modal height="550px" params="zahid" name="my-first-modal">
-      <serial :slots="slots" />
+      <serial :slots="slots" :doctor="doctor" />
     </modal>
   </section>
 </template>
@@ -95,6 +95,7 @@ export default {
     return {
       fetchError: null,
       doctors: null,
+      doctor: null,
       slots: null
     }
   },
@@ -107,6 +108,7 @@ export default {
   methods: {
     show (item) {
       this.slots = item.slots
+      this.doctor = item
       this.$modal.show('my-first-modal')
     },
     hide () {

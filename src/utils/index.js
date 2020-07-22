@@ -2,6 +2,8 @@
  * Created by PanJiaChen on 16/11/18.
  */
 
+import moment from 'moment'
+
 /**
  * Parse the time to string
  * @param {(Object|string|number)} time
@@ -24,6 +26,7 @@ export const env = {
   patnerHoshName: 'localhost:8080',
   partner: 'localhost'
 }
+
 export function parseTime (time, cFormat) {
   if (arguments.length === 0) {
     return null
@@ -53,7 +56,9 @@ export function parseTime (time, cFormat) {
   const timeStr = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key]
     // Note: getDay() returns 0 on Sunday
-    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value] }
+    if (key === 'a') {
+      return ['日', '一', '二', '三', '四', '五', '六'][value]
+    }
     return value.toString().padStart(2, '0')
   })
   return timeStr
@@ -130,8 +135,9 @@ export function byteLength (str) {
   let s = str.length
   for (var i = str.length - 1; i >= 0; i--) {
     const code = str.charCodeAt(i)
-    if (code > 0x7f && code <= 0x7ff) s++
-    else if (code > 0x7ff && code <= 0xffff) s += 2
+    if (code > 0x7f && code <= 0x7ff) {
+      s++
+    } else if (code > 0x7ff && code <= 0xffff) s += 2
     if (code >= 0xDC00 && code <= 0xDFFF) i--
   }
   return s
@@ -176,12 +182,12 @@ export function param2Obj (url) {
   }
   return JSON.parse(
     '{"' +
-      decodeURIComponent(search)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"')
-        .replace(/\+/g, ' ') +
-      '"}'
+    decodeURIComponent(search)
+      .replace(/"/g, '\\"')
+      .replace(/&/g, '","')
+      .replace(/=/g, '":"')
+      .replace(/\+/g, ' ') +
+    '"}'
   )
 }
 
@@ -249,6 +255,18 @@ export function getTime (type) {
   } else {
     return new Date(new Date().toDateString())
   }
+}
+
+export function myDate (myDate) {
+  return new Date(myDate).toISOString().substr(0, 10)
+}
+
+export function currentDate () {
+  return new Date().toISOString().substr(0, 10)
+}
+
+export function momentTime (dateTime) {
+  return moment(dateTime).format('h:mm a')
 }
 
 /**
