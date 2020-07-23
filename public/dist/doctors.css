@@ -1165,6 +1165,27 @@ input[type=radio]:checked~label {
     background: #b5274b
 }
 
+.booked-schedule {
+    display: block;
+    position: relative;
+    height: 34px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all .25s linear;
+    border: 1px solid #b7274c;
+    margin-left: 10px;
+    color: #fff!important;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 13px;
+    padding: 0;
+    margin: 0 5px;
+    font-weight: 900;
+    padding-top: 3px;
+    background: orange;
+    cursor: none!important;
+}
+
 div.appointment-open {
     position: relative;
     width: 100%;

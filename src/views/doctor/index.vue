@@ -66,7 +66,7 @@
       </div>
     </div>
     <modal height="550px" params="zahid" name="my-first-modal">
-      <serial :slots="slots" :doctor="doctor" />
+      <serial :mySlots="slots" :doctorInfo="doctor" @refreshData="refreshData"/>
     </modal>
   </section>
 </template>
@@ -106,6 +106,9 @@ export default {
     // this.show()
   },
   methods: {
+    refreshData () {
+      this.getDoctorList()
+    },
     show (item) {
       this.slots = item.slots
       this.doctor = item

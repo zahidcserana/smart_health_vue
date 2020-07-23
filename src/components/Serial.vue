@@ -30,7 +30,7 @@
                 <p class="days_style" id="days_style">Morning</p>
                 <li v-for="(item,index) in morning" :key="index">
                   <input type="radio" v-model="requestData.slot_time"/>
-                  <label :class="['schedule_'+index, {'check-schedule': item.isBooked}]"
+                  <label :class="['schedule_'+index, {'booked-schedule': item.isBooked}]"
                          @click="checkSchedule(index, item.time)">
                     {{ item.time }}
                   </label>
@@ -41,7 +41,7 @@
                 <p class="days_style" id="days_style">Afternoon</p>
                 <li v-for="(item,index) in afternoon" :key="index">
                   <input type="radio" v-model="requestData.slot_time"/>
-                  <label :class="['schedule_'+index, {'check-schedule': item.isBooked}]"
+                  <label :class="['schedule_'+index, {'booked-schedule': item.isBooked}]"
                          @click="checkSchedule(index, item.time)">
                     {{ item.time }}
                   </label>
@@ -99,8 +99,8 @@ export default {
     SingleDatePicker
   },
   props: {
-    slots: Array,
-    doctor: Object
+    mySlots: Array,
+    doctorInfo: Object
   },
   filters: {
     moment: function (time) {
@@ -110,7 +110,9 @@ export default {
   },
   data () {
     return {
-      mySlots: null,
+      doctor: null,
+      appointments: null,
+      slots: null,
       apt_date: null,
       booked: null,
       morning: null,
@@ -124,6 +126,11 @@ export default {
       }
     }
   },
+  mounted () {
+    this.slots = this.mySlots
+    this.doctor = this.doctorInfo
+    this.appointments = this.doctorInfo.appointments
+  },
   methods: {
     checkSchedule (label, item) {
       $('.' + this.schedule_index).removeClass('check-schedule')
@@ -134,27 +141,30 @@ export default {
     },
     getDate (date) {
       const getDate = myDate(date.year + '-' + (date.month + 1) + '-' + date.date + ' 10:00:00')
+      this.apt_date = getDate
       this.requestData.appoint_date = getDate
       const dt = moment(getDate, 'YYYY-MM-DD HH:mm:ss')
       const d = dt.format('d')
-
-      this.mySlots = this.slots.filter(row => parseInt(row.day) === parseInt(d))
+      this.requestData.day = d
+      this.slots = this.mySlots.filter(row => parseInt(row.day) === parseInt(d))
+      this.getBooked()
+    },
+    getBooked () {
       const myBooked = []
-      if (this.doctor.appointments.length > 0) {
-        this.doctor.appointments.map(row => {
-          if (row.appoint_date === getDate) {
+      if (this.appointments.length > 0) {
+        this.appointments.map(row => {
+          if (row.appoint_date === this.apt_date) {
             myBooked.push(row.slot_time)
           }
         })
       }
       this.booked = myBooked
-      this.requestData.day = d
       this.getSlot()
     },
     getSlot () {
       const pmList = []
       const amList = []
-      this.mySlots.map(function (row) {
+      this.slots.map(function (row) {
         const date = currentDate()
         const time = momentTime(date.concat(' ', row.start_time))
 
@@ -185,8 +195,12 @@ export default {
       return true
     },
     checkBooked () {
-      this.mapMorning()
-      this.mapAfternoon()
+      if (this.morning) {
+        this.mapMorning()
+      }
+      if (this.afternoon) {
+        this.mapAfternoon()
+      }
     },
     mapMorning () {
       const myTime = []
@@ -221,16 +235,15 @@ export default {
         }
       })
       this.afternoon = myTime
-      console.log(this.afternoon)
     },
     submitForm () {
       if (this.checkValidation()) {
         this.loading = true
         requestSchedule(this.requestData).then(response => {
           if (response.status) {
-            this.booked = response.data.booked
-            console.log(this.booked)
-            this.checkBooked()
+            this.appointments = response.data.appointments
+            this.getBooked()
+            this.$emit('refreshData')
             this.$swal({
               position: 'center',
               icon: 'success',
