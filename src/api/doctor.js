@@ -31,6 +31,14 @@ export function requestSchedule (data) {
   })
 }
 
+export function appointmentList (data) {
+  return request({
+    url: `${env.api_url}/appointments`,
+    method: 'get',
+    params: data
+  })
+}
+
 export function scheduleList (doctorId) {
   return request({
     url: `${env.api_url}/doctor-schedule-list/${doctorId}`,

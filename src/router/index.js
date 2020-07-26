@@ -72,6 +72,30 @@ const routes = [
         meta: { title: 'Doctor', icon: 'dashboard', affix: true }
       }
     ]
+  },
+  {
+    path: '/appointments',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/appointment'),
+        name: 'Appointment',
+        meta: { title: 'Appointment', icon: 'dashboard', affix: true }
+      }
+    ]
+  },
+  {
+    path: '/serials',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/patient/serials'),
+        name: 'Serial',
+        meta: { title: 'Serial', icon: 'dashboard', affix: true }
+      }
+    ]
   }
 ]
 

@@ -251,7 +251,6 @@ export default {
               showConfirmButton: false,
               timer: 1500
             })
-            localStorage.setItem('userInfo', JSON.stringify(response.data))
           } else {
             this.$swal({
               position: 'center',

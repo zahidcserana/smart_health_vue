@@ -10,9 +10,8 @@
           <a href="#">Pages</a>
           <ul class="header__menu__dropdown">
             <li><router-link to="/doctor">Doctor</router-link></li>
-            <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-            <li><a href="./checkout.html">Check Out</a></li>
-            <li><a href="./blog-details.html">Blog Details</a></li>
+            <li><router-link to="/appointments">Appointments</router-link></li>
+            <li><router-link to="/serials">Serial</router-link></li>
           </ul>
         </li>
         <li><a href="./blog.html">Blog</a></li>

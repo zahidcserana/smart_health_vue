@@ -6,14 +6,14 @@
           <!-- <div class="doc-profile-appoint doc-listing-appointment height-auto"> -->
           <div class="row">
             <!-- <div id="result"></div> -->
-            <div id="result" v-if="doctors">
-              <div v-for="(item,index) in doctors" :key="index" class="doc-profile-appoint doc-listing-appointment" id="doc-profile-appoint71">
+            <div id="result" v-if="appointments">
+              <div v-for="(item,index) in appointments" :key="index" class="doc-profile-appoint doc-listing-appointment" id="doc-profile-appoint71">
                 <div class="main-box">
                   <div class="row">
                     <div class="col-4  p-0">
                       <div class="position-rel img-doc-appont img-doc-listing">
-                        <a :href="item.user.picture" target="_blank">
-                          <img :src="item.user.picture" alt="" title="" class="img-responsive" >
+                        <a :href="item.user.avatar" target="_blank">
+                          <img :src="item.user.avatar" alt="" title="" class="img-responsive" >
                         </a>
                         <p class="pic_box">
                           Smart Health Ltd.
@@ -28,14 +28,15 @@
                           id="view_profile71"
                           href="javascript:void(0)"
                         >
-                          <h3>{{ item.user.name }}</h3>
+                          <h3 style="color: darkcyan; font-size: 14px">Patient Information</h3>
+                          <span>Name: {{ item.user.name }}</span> <br>
+                          <span>Mobile: {{ item.user.mobile }} </span> <br>
+                          <span>Email: <a style="text-transform: lowercase" :href="`mailto:${item.user.email}`">{{ item.user.email }}</a> </span>
                         </a>
                       </div>
-                      <p class="desgn">{{ item.speciality.title }}</p>
-                      <h5 class="left_texty">QUALIFICATION</h5>
-                      <p class="left_texty">
-                        <span> {{ item.qualification_details }} </span>
-                      </p>
+                      <h5 class="left_texty">Date:<span> {{ item.appoint_date }} </span></h5>
+                      <h5 class="left_texty">Time:<span> {{ item.slot_time }} </span></h5>
+                      <p class="desgn">{{ item.status }}</p>
                     </div>
                     <div
                       class="col-4 no-padding"
@@ -45,13 +46,13 @@
                         class="booking-btn booking-disabled71"
                         @click="show(item)"
                       >
-                        Book Appointment
+                        Change Status
                       </button>
                       <a
                         href="javascript:void(0)"
                       >
                         <button class="booking-btn view-more-booking">
-                          View profile
+                          View Appointment
                         </button>
                       </a>
                     </div>
@@ -73,11 +74,11 @@
 import '../../../public/dist/appointment-new.css'
 import '../../../public/dist/doctors.css'
 
-import { doctorList } from '@/api/doctor'
+import { appointmentList } from '@/api/doctor'
 import Serial from '@/components/Serial'
 
 export default {
-  name: 'Doctor',
+  name: 'Appointment',
   props: {
     msg: String
   },
@@ -87,35 +88,41 @@ export default {
   data () {
     return {
       fetchError: null,
-      doctors: null,
+      appointments: null,
       doctor: null,
-      slots: null
+      user: null,
+      slots: null,
+      param: {
+        doctor_id: undefined
+      }
     }
   },
   created () {
-    this.getDoctorList()
+    this.user = JSON.parse(localStorage.getItem('userInfo'))
+    this.param.doctor_id = this.user.id
+    this.getAppointmentList()
   },
   mounted () {
     // this.show()
   },
   methods: {
     refreshData () {
-      this.getDoctorList()
+      this.getAppointmentList()
     },
     show (item) {
-      this.slots = item.slots
-      this.doctor = item
-      this.$modal.show('my-first-modal')
+      // this.slots = item.slots
+      // this.doctor = item
+      // this.$modal.show('my-first-modal')
     },
     hide () {
       this.$modal.hide('my-first-modal')
     },
-    getDoctorList () {
-      doctorList()
+    getAppointmentList () {
+      appointmentList(this.param)
         .then(response => {
           if (response.status) {
             this.fetchError = null
-            this.doctors = response.data
+            this.appointments = response.data
           } else {
             this.showError(response.status)
           }

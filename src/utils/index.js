@@ -266,7 +266,7 @@ export function currentDate () {
 }
 
 export function momentTime (dateTime) {
-  return moment(dateTime).format('h:mm a')
+  return moment(dateTime).format('hh:mm a')
 }
 
 /**
