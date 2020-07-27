@@ -1,9 +1,17 @@
 import request from '@/utils/request'
 import { env } from '@/utils'
 
-export function doctorList () {
+export function doctorList (data) {
   return request({
     url: `${env.api_url}/doctors`,
+    method: 'get',
+    params: data
+  })
+}
+
+export function doctors () {
+  return request({
+    url: `${env.api_url}/doctors/list`,
     method: 'get'
   })
 }

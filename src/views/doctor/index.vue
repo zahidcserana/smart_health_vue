@@ -2,6 +2,10 @@
   <section id="docList">
     <div class="container">
       <div class="row">
+        <search @search="dataSearch"/>
+      </div>
+
+      <div class="row">
         <div class="docListCont col-md-12 cl-sm-12 col-xs-12 no-padding">
           <!-- <div class="doc-profile-appoint doc-listing-appointment height-auto"> -->
           <div class="row">
@@ -75,6 +79,7 @@ import '../../../public/dist/doctors.css'
 
 import { doctorList } from '@/api/doctor'
 import Serial from '@/components/Serial'
+import search from '@/views/doctor/search'
 
 export default {
   name: 'Doctor',
@@ -82,7 +87,8 @@ export default {
     msg: String
   },
   components: {
-    Serial
+    Serial,
+    search
   },
   data () {
     return {
@@ -99,6 +105,10 @@ export default {
     // this.show()
   },
   methods: {
+    dataSearch (data) {
+      console.log(data)
+      this.getDoctorList(data)
+    },
     refreshData () {
       this.getDoctorList()
     },
@@ -110,8 +120,8 @@ export default {
     hide () {
       this.$modal.hide('my-first-modal')
     },
-    getDoctorList () {
-      doctorList()
+    getDoctorList (q = null) {
+      doctorList(q)
         .then(response => {
           if (response.status) {
             this.fetchError = null

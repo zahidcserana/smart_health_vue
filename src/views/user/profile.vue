@@ -188,8 +188,8 @@
                         v-model="user.doctor.specialty_id"
                         class="form-control"
                       >
-                        <option v-for="(value, key, index) in userSettings.doctorSpecialties" :key="value+index"
-                                :value="value">{{ key }}
+                        <option v-for="(item, index) in userSettings.doctorSpecialties" :key="item.id+index"
+                                :value="item.id">{{ item.title }}
                         </option>
                       </select>
                     </div>
