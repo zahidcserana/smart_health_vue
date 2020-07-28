@@ -1,6 +1,6 @@
 <template>
   <div class="search col-md-12 cl-sm-12 col-xs-12 no-padding">
-    <form class="form-inline" @submit.prevent="submitForm">
+    <form class="form-inline" @submit.prevent="submitForm" style="padding-left: 14%;">
       <div class="form-group mb-2" v-if="userSettings.doctorSpecialties">
         <div class="checkout__input">
           <select
@@ -27,8 +27,10 @@
           </select>
         </div>
       </div>
-      <button type="submit" class="btn site-btn mb-2">Search</button>
-      <a @click="reset" type="submit" class="btn slot-btn mb-2">Reset</a>
+      <div class="checkout__input">
+        <button type="submit" class="btn search-btn mb-2">Search</button> &nbsp;
+        <a @click="reset" type="submit" class="btn reset-btn mb-2">Reset</a>
+      </div>
     </form>
   </div>
 </template>
