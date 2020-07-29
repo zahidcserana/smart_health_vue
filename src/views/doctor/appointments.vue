@@ -7,7 +7,7 @@
           <div class="row">
             <!-- <div id="result"></div> -->
             <div id="result" v-if="appointments">
-              <div v-for="(item,index) in appointments" :key="index" class="doc-profile-appoint doc-listing-appointment" id="doc-profile-appoint71">
+              <div v-for="(item,index) in appointments" :key="appointments" class="doc-profile-appoint doc-listing-appointment" id="doc-profile-appoint71">
                 <div class="main-box">
                   <div class="row">
                     <div class="col-4  p-0">

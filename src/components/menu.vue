@@ -9,15 +9,15 @@
         <li>
           <a href="#">Pages</a>
           <ul class="header__menu__dropdown">
-            <li><router-link to="/doctor">Doctor</router-link></li>
-            <li><router-link to="/appointments">Appointments</router-link></li>
-            <li><router-link to="/serials">Serial</router-link></li>
+            <li><router-link to="/doctors">Doctor</router-link></li>
+            <li><router-link to="/doctors/appointments">Appointments</router-link></li>
+            <li><router-link to="/doctors/serials">Serial</router-link></li>
           </ul>
         </li>
         <li>
           <a href="#">Request</a>
           <ul class="header__menu__dropdown">
-            <li><router-link to="/doctor">Blood</router-link></li>
+            <li><router-link to="/bloods">Blood</router-link></li>
             <li><router-link to="/appointments">Ambulance</router-link></li>
           </ul>
         </li>

@@ -62,7 +62,7 @@ const routes = [
     ]
   },
   {
-    path: '/doctor',
+    path: '/doctors',
     component: Layout,
     children: [
       {
@@ -70,30 +70,46 @@ const routes = [
         component: () => import('@/views/doctor'),
         name: 'Doctor',
         meta: { title: 'Doctor', icon: 'dashboard', affix: true }
-      }
-    ]
-  },
-  {
-    path: '/appointments',
-    component: Layout,
-    children: [
+      },
       {
-        path: '',
-        component: () => import('@/views/appointment'),
+        path: 'appointments',
+        component: () => import('@/views/doctor/appointments'),
         name: 'Appointment',
         meta: { title: 'Appointment', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'serials',
+        component: () => import('@/views/doctor/serials'),
+        name: 'Serial',
+        meta: { title: 'Serial', icon: 'dashboard', affix: true }
       }
     ]
   },
   {
-    path: '/serials',
+    path: '/bloods',
     component: Layout,
     children: [
       {
         path: '',
-        component: () => import('@/views/patient/serials'),
-        name: 'Serial',
-        meta: { title: 'Serial', icon: 'dashboard', affix: true }
+        component: () => import('@/views/blood'),
+        name: 'BloodList',
+        meta: {
+          title: 'Blood List',
+          icon: 'list'
+        }
+      },
+      {
+        path: 'edit/:id(\\d+)',
+        component: () => import('@/views/blood/add')
+      },
+      {
+        path: 'add',
+        component: () => import('@/views/blood/add'),
+        name: 'BloodAdd',
+        meta: {
+          title: 'Blood Add',
+          icon: 'list'
+        }
       }
     ]
   }
