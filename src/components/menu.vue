@@ -18,7 +18,7 @@
           <a href="#">Request</a>
           <ul class="header__menu__dropdown">
             <li><router-link to="/bloods">Blood</router-link></li>
-            <li><router-link to="/appointments">Ambulance</router-link></li>
+            <li><router-link to="/ambulance">Ambulance</router-link></li>
           </ul>
         </li>
         <li><a href="./blog.html">Blog</a></li>

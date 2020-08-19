@@ -112,6 +112,34 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    path: '/ambulance',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/ambulance'),
+        name: 'AmbulanceList',
+        meta: {
+          title: 'Ambulance List',
+          icon: 'list'
+        }
+      },
+      {
+        path: 'edit/:id(\\d+)',
+        component: () => import('@/views/ambulance/add')
+      },
+      {
+        path: 'add',
+        component: () => import('@/views/ambulance/add'),
+        name: 'BAmbulanceAdd',
+        meta: {
+          title: 'Ambulance Add',
+          icon: 'list'
+        }
+      }
+    ]
   }
 ]
 
