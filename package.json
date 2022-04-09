@@ -13,7 +13,7 @@
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",
     "material-design-icons": "^3.0.1",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "sass-loader": "^9.0.2",
     "vue": "^2.6.11",
     "vue-avatar-cropper": "^1.0.6",
